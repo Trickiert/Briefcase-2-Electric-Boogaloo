@@ -1,0 +1,9 @@
+.\objects\fatdirhandle.o: EALib\FATFileSystem\FATDirHandle.cpp
+.\objects\fatdirhandle.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\objects\fatdirhandle.o: .\EALib\FATFileSystem\ChaN\ff.h
+.\objects\fatdirhandle.o: .\EALib\FATFileSystem\ChaN\integer.h
+.\objects\fatdirhandle.o: .\EALib\FATFileSystem\ChaN\ffconf.h
+.\objects\fatdirhandle.o: EALib\FATFileSystem\FATDirHandle.h
+.\objects\fatdirhandle.o: ..\mbed_nxp_lpc408x\api\DirHandle.h
+.\objects\fatdirhandle.o: ..\mbed_nxp_lpc408x\api\FileHandle.h
+.\objects\fatdirhandle.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

@@ -1,0 +1,757 @@
+Component: ARM Compiler 5.06 update 1 (build 61) Tool: armlink [4d35a8]
+
+==============================================================================
+
+Removing Unused input sections from the image.
+
+    Removing main.o(.rev16_text), (4 bytes).
+    Removing main.o(.revsh_text), (4 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing buffer.o(.ARM.exidx), (8 bytes).
+    Removing buffer.o(.ARM.exidx), (8 bytes).
+    Removing buffer.o(.ARM.exidx), (8 bytes).
+    Removing buffer.o(.ARM.exidx), (8 bytes).
+    Removing buffer.o(.ARM.exidx), (8 bytes).
+    Removing cmsis_nvic.o(.rev16_text), (4 bytes).
+    Removing cmsis_nvic.o(.revsh_text), (4 bytes).
+    Removing cmsis_nvic.o(i.NVIC_GetVector), (20 bytes).
+    Removing system_lpc407x_8x_177x_8x.o(.rev16_text), (4 bytes).
+    Removing system_lpc407x_8x_177x_8x.o(.revsh_text), (4 bytes).
+    Removing sys.o(.ARM.exidx), (8 bytes).
+    Removing sys_helper.o(i.__reserved_stack_size), (4 bytes).
+    Removing sys_helper.o(.ARM.exidx), (8 bytes).
+    Removing gpio.o(.rev16_text), (4 bytes).
+    Removing gpio.o(.revsh_text), (4 bytes).
+    Removing gpio.o(i.gpio_init_inout), (56 bytes).
+    Removing stream.o(.rev16_text), (4 bytes).
+    Removing stream.o(.revsh_text), (4 bytes).
+    Removing stream.o(i._ZN4mbed6Stream4getcEv), (18 bytes).
+    Removing stream.o(i._ZN4mbed6Stream4getsEPci), (26 bytes).
+    Removing stream.o(i._ZN4mbed6Stream4putcEi), (22 bytes).
+    Removing stream.o(i._ZN4mbed6Stream4putsEPKc), (22 bytes).
+    Removing stream.o(i._ZN4mbed6Stream4readEPvj), (54 bytes).
+    Removing stream.o(i._ZN4mbed6Stream5fsyncEv), (6 bytes).
+    Removing stream.o(i._ZN4mbed6Stream5scanfEPKcz), (40 bytes).
+    Removing stream.o(i._ZN4mbed6StreamD0Ev), (18 bytes).
+    Removing stream.o(i._ZN4mbed6StreamD2Ev), (36 bytes).
+    Removing stream.o(i._ZThn4_N4mbed6StreamD0Ev), (14 bytes).
+    Removing stream.o(i._ZThn4_N4mbed6StreamD1Ev), (14 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.ARM.exidx), (8 bytes).
+    Removing analogin_api.o(.rev16_text), (4 bytes).
+    Removing analogin_api.o(.revsh_text), (4 bytes).
+    Removing analogin_api.o(i.analogin_read_u16), (24 bytes).
+    Removing adafruit_gfx.o(.rev16_text), (4 bytes).
+    Removing adafruit_gfx.o(.revsh_text), (4 bytes).
+    Removing adafruit_gfx.o(i._ZN12Adafruit_GFX10drawBitmapEssPKhsst), (110 bytes).
+    Removing adafruit_gfx.o(i._ZN12Adafruit_GFX10drawCircleEssst), (356 bytes).
+    Removing adafruit_gfx.o(i._ZN12Adafruit_GFX10fillCircleEssst), (64 bytes).
+    Removing adafruit_gfx.o(i._ZN12Adafruit_GFX10fillScreenEt), (32 bytes).
+    Removing adafruit_gfx.o(i._ZN12Adafruit_GFX11getRotationEv), (6 bytes).
+    Removing adafruit_gfx.o(i._ZN12Adafruit_GFX11setRotationEh), (52 bytes).
+    Removing adafruit_gfx.o(i._ZN12Adafruit_GFX11setTextSizeEh), (14 bytes).
+    Removing adafruit_gfx.o(i._ZN12Adafruit_GFX11setTextWrapEb), (4 bytes).
+    Removing adafruit_gfx.o(i._ZN12Adafruit_GFX12drawTriangleEsssssst), (86 bytes).
+    Removing adafruit_gfx.o(i._ZN12Adafruit_GFX12fillTriangleEsssssst), (440 bytes).
+    Removing adafruit_gfx.o(i._ZN12Adafruit_GFX12setTextColorEt), (6 bytes).
+    Removing adafruit_gfx.o(i._ZN12Adafruit_GFX13drawRoundRectEssssst), (258 bytes).
+    Removing adafruit_gfx.o(i._ZN12Adafruit_GFX13fillRoundRectEssssst), (126 bytes).
+    Removing adafruit_gfx.o(i._ZN12Adafruit_GFX13invertDisplayEb), (2 bytes).
+    Removing adafruit_gfx.o(i._ZN12Adafruit_GFX16drawCircleHelperEsssht), (298 bytes).
+    Removing adafruit_gfx.o(i._ZN12Adafruit_GFX16fillCircleHelperEssshst), (246 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing adafruit_gfx.o(.ARM.exidx), (8 bytes).
+    Removing display.o(.rev16_text), (4 bytes).
+    Removing display.o(.revsh_text), (4 bytes).
+    Removing display.o(i._ZN7Display5_getcEv), (8 bytes).
+    Removing display.o(i._ZN7Display6initOkEv), (16 bytes).
+    Removing display.o(i._ZN7DisplayD0Ev), (18 bytes).
+    Removing display.o(i._ZN7DisplayD1Ev), (52 bytes).
+    Removing display.o(i._ZThn4_N7DisplayD0Ev), (14 bytes).
+    Removing display.o(i._ZThn4_N7DisplayD1Ev), (14 bytes).
+    Removing display.o(.ARM.exidx), (8 bytes).
+    Removing display.o(.ARM.exidx), (8 bytes).
+    Removing display.o(.ARM.exidx), (8 bytes).
+    Removing display.o(.ARM.exidx), (8 bytes).
+    Removing display.o(.ARM.exidx), (8 bytes).
+    Removing display.o(.ARM.exidx), (8 bytes).
+    Removing display.o(.ARM.exidx), (8 bytes).
+    Removing display.o(.ARM.exidx), (8 bytes).
+    Removing display.o(.ARM.exidx), (8 bytes).
+    Removing os_core.o(i.OSEventNameGet), (104 bytes).
+    Removing os_core.o(i.OSIntEnter), (36 bytes).
+    Removing os_core.o(i.OSStatInit), (76 bytes).
+    Removing os_core.o(i.OSVersion), (6 bytes).
+    Removing os_core.o(i.OS_MemCopy), (20 bytes).
+    Removing os_core.o(i.OS_StrLen), (20 bytes).
+    Removing os_mutex.o(i.OSMutexAccept), (148 bytes).
+    Removing os_mutex.o(i.OSMutexCreate), (164 bytes).
+    Removing os_mutex.o(i.OSMutexDel), (308 bytes).
+    Removing os_mutex.o(i.OSMutexQuery), (112 bytes).
+    Removing os_sem.o(i.OSSemAccept), (42 bytes).
+    Removing os_sem.o(i.OSSemDel), (224 bytes).
+    Removing os_sem.o(i.OSSemPendAbort), (128 bytes).
+    Removing os_sem.o(i.OSSemQuery), (76 bytes).
+    Removing os_sem.o(i.OSSemSet), (66 bytes).
+    Removing os_task.o(i.OSTaskDelReq), (108 bytes).
+    Removing os_task.o(i.OSTaskNameGet), (128 bytes).
+    Removing os_task.o(i.OSTaskQuery), (92 bytes).
+    Removing os_task.o(i.OSTaskRegGet), (68 bytes).
+    Removing os_task.o(i.OSTaskRegGetID), (64 bytes).
+    Removing os_task.o(i.OSTaskRegSet), (72 bytes).
+    Removing os_task.o(i.OSTaskResume), (172 bytes).
+    Removing os_time.o(i.OSTimeDlyResume), (180 bytes).
+    Removing os_time.o(i.OSTimeGet), (28 bytes).
+    Removing os_time.o(i.OSTimeSet), (28 bytes).
+    Removing error.o(.rev16_text), (4 bytes).
+    Removing error.o(.revsh_text), (4 bytes).
+    Removing pinmap_common.o(.rev16_text), (4 bytes).
+    Removing pinmap_common.o(.revsh_text), (4 bytes).
+    Removing pinmap_common.o(i.pinmap_find_function), (32 bytes).
+    Removing pinmap_common.o(i.pinmap_function), (76 bytes).
+    Removing filelike.o(.rev16_text), (4 bytes).
+    Removing filelike.o(.revsh_text), (4 bytes).
+    Removing filelike.o(i._ZN4mbed8FileLikeD0Ev), (18 bytes).
+    Removing filelike.o(i._ZN4mbed8FileLikeD2Ev), (24 bytes).
+    Removing filelike.o(i._ZThn4_N4mbed8FileLikeD0Ev), (14 bytes).
+    Removing filelike.o(i._ZThn4_N4mbed8FileLikeD1Ev), (14 bytes).
+    Removing filelike.o(.ARM.exidx), (8 bytes).
+    Removing filelike.o(.ARM.exidx), (8 bytes).
+    Removing filelike.o(.ARM.exidx), (8 bytes).
+    Removing filelike.o(.ARM.exidx), (8 bytes).
+    Removing filelike.o(.ARM.exidx), (8 bytes).
+    Removing gpio_api.o(.rev16_text), (4 bytes).
+    Removing gpio_api.o(.revsh_text), (4 bytes).
+    Removing retarget.o(.rev16_text), (4 bytes).
+    Removing retarget.o(.revsh_text), (4 bytes).
+    Removing retarget.o(i._ZN4mbed10FileHandleD0Ev), (18 bytes).
+    Removing retarget.o(i._ZN4mbed10FileHandleD2Ev), (48 bytes).
+    Removing retarget.o(i._ZN4mbed9mbed_getcEPSt6__FILE), (12 bytes).
+    Removing retarget.o(i._ZN4mbed9mbed_getsEPciPSt6__FILE), (20 bytes).
+    Removing retarget.o(i._sys_command_string), (6 bytes).
+    Removing retarget.o(i._sys_ensure), (44 bytes).
+    Removing retarget.o(i._sys_read), (92 bytes).
+    Removing retarget.o(i.closedir), (14 bytes).
+    Removing retarget.o(i.mkdir), (58 bytes).
+    Removing retarget.o(i.opendir), (68 bytes).
+    Removing retarget.o(i.readdir), (14 bytes).
+    Removing retarget.o(i.remove), (54 bytes).
+    Removing retarget.o(i.rename), (88 bytes).
+    Removing retarget.o(i.rewinddir), (14 bytes).
+    Removing retarget.o(i.seekdir), (18 bytes).
+    Removing retarget.o(i.telldir), (14 bytes).
+    Removing retarget.o(i.tmpfile), (4 bytes).
+    Removing retarget.o(i.tmpnam), (6 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing retarget.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboardgpio.o(.rev16_text), (4 bytes).
+    Removing ealcdboardgpio.o(.revsh_text), (4 bytes).
+    Removing ealcdboardgpio.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboardgpio.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboardgpio.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboardgpio.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboardgpio.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboardgpio.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboardgpio.o(.conststring), (72 bytes).
+    Removing ealcdboard.o(.rev16_text), (4 bytes).
+    Removing ealcdboard.o(.revsh_text), (4 bytes).
+    Removing ealcdboard.o(i._ZN10EaLcdBoard11eepromWriteEPhtt), (178 bytes).
+    Removing ealcdboard.o(i._ZN10EaLcdBoard13getDisplayMfgEPci), (68 bytes).
+    Removing ealcdboard.o(i._ZN10EaLcdBoard14getDisplayNameEPci), (64 bytes).
+    Removing ealcdboard.o(i._ZN10EaLcdBoard15getPowerDownSeqEPci), (88 bytes).
+    Removing ealcdboard.o(i._ZN10EaLcdBoard15setWriteProtectEb), (36 bytes).
+    Removing ealcdboard.o(i._ZN10EaLcdBoard15storeParametersEPKcS1_PN13LcdController6ConfigES1_S1_PNS_13TouchParams_tEb), (436 bytes).
+    Removing ealcdboard.o(i._ZN10EaLcdBoard18getTouchParametersEPNS_13TouchParams_tE), (92 bytes).
+    Removing ealcdboard.o(i._ZN10EaLcdBoard5closeEv), (54 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing ealcdboard.o(.ARM.exidx), (8 bytes).
+    Removing gfxfb.o(.rev16_text), (4 bytes).
+    Removing gfxfb.o(.revsh_text), (4 bytes).
+    Removing gfxfb.o(i._ZN5GFXFb11writeStringEPKc), (34 bytes).
+    Removing gfxfb.o(i._ZN5GFXFb14getStringWidthEPKc), (30 bytes).
+    Removing gfxfb.o(i._ZN5GFXFb15getStringHeightEPKc), (6 bytes).
+    Removing gfxfb.o(.ARM.exidx), (8 bytes).
+    Removing gfxfb.o(.ARM.exidx), (8 bytes).
+    Removing gfxfb.o(.ARM.exidx), (8 bytes).
+    Removing gfxfb.o(.ARM.exidx), (8 bytes).
+    Removing gfxfb.o(.ARM.exidx), (8 bytes).
+    Removing gfxfb.o(.ARM.exidx), (8 bytes).
+    Removing gfxfb.o(.ARM.exidx), (8 bytes).
+    Removing gfxfb.o(.ARM.exidx), (8 bytes).
+    Removing sdram.o(.rev16_text), (4 bytes).
+    Removing sdram.o(.revsh_text), (4 bytes).
+    Removing sdram.o(i._Z24sdram_disableMallocSdramv), (12 bytes).
+    Removing sdram.o(.ARM.exidx), (8 bytes).
+    Removing sdram.o(.ARM.exidx), (8 bytes).
+    Removing sdram.o(.ARM.exidx), (8 bytes).
+    Removing sdram.o(.ARM.exidx), (8 bytes).
+    Removing sdram.o(.ARM.exidx), (8 bytes).
+    Removing sdram.o(.ARM.exidx), (8 bytes).
+    Removing sdram.o(.ARM.exidx), (8 bytes).
+    Removing sdram.o(.ARM.exidx), (8 bytes).
+    Removing sdram.o(.ARM.exidx), (8 bytes).
+    Removing sdram.o(.ARM.exidx), (8 bytes).
+    Removing os_flag.o(i.OSFlagAccept), (252 bytes).
+    Removing os_flag.o(i.OSFlagCreate), (100 bytes).
+    Removing os_flag.o(i.OSFlagDel), (228 bytes).
+    Removing os_flag.o(i.OSFlagNameGet), (84 bytes).
+    Removing os_flag.o(i.OSFlagNameSet), (72 bytes).
+    Removing os_flag.o(i.OSFlagPend), (596 bytes).
+    Removing os_flag.o(i.OSFlagPendGetFlagsRdy), (32 bytes).
+    Removing os_flag.o(i.OSFlagPost), (320 bytes).
+    Removing os_flag.o(i.OSFlagQuery), (48 bytes).
+    Removing os_flag.o(i.OS_FlagBlock), (164 bytes).
+    Removing os_flag.o(i.OS_FlagTaskRdy), (96 bytes).
+    Removing os_mem.o(i.OSMemCreate), (124 bytes).
+    Removing os_mem.o(i.OSMemGet), (62 bytes).
+    Removing os_mem.o(i.OSMemNameGet), (64 bytes).
+    Removing os_mem.o(i.OSMemNameSet), (52 bytes).
+    Removing os_mem.o(i.OSMemPut), (54 bytes).
+    Removing os_mem.o(i.OSMemQuery), (52 bytes).
+    Removing os_q.o(i.OSQAccept), (88 bytes).
+    Removing os_q.o(i.OSQCreate), (160 bytes).
+    Removing os_q.o(i.OSQDel), (260 bytes).
+    Removing os_q.o(i.OSQFlush), (36 bytes).
+    Removing os_q.o(i.OSQPend), (284 bytes).
+    Removing os_q.o(i.OSQPendAbort), (128 bytes).
+    Removing os_q.o(i.OSQPost), (114 bytes).
+    Removing os_q.o(i.OSQPostFront), (116 bytes).
+    Removing os_q.o(i.OSQPostOpt), (182 bytes).
+    Removing os_q.o(i.OSQQuery), (98 bytes).
+    Removing os_tmr.o(i.OSTmrCreate), (116 bytes).
+    Removing os_tmr.o(i.OSTmrDel), (128 bytes).
+    Removing os_tmr.o(i.OSTmrNameGet), (120 bytes).
+    Removing os_tmr.o(i.OSTmrRemainGet), (172 bytes).
+    Removing os_tmr.o(i.OSTmrStart), (132 bytes).
+    Removing os_tmr.o(i.OSTmrStateGet), (92 bytes).
+    Removing os_tmr.o(i.OSTmrStop), (184 bytes).
+    Removing os_tmr.o(i.OSTmr_Alloc), (64 bytes).
+    Removing os_tmr.o(i.OSTmr_Free), (76 bytes).
+    Removing os_cpu_c.o(i.OS_CPU_SysTickInit), (48 bytes).
+    Removing wait_api.o(.rev16_text), (4 bytes).
+    Removing wait_api.o(.revsh_text), (4 bytes).
+    Removing filebase.o(.rev16_text), (4 bytes).
+    Removing filebase.o(.revsh_text), (4 bytes).
+    Removing filebase.o(i._ZN4mbed8FileBase3getEi), (36 bytes).
+    Removing filebase.o(i._ZN4mbed8FileBase7getNameEv), (6 bytes).
+    Removing filebase.o(i._ZN4mbed8FileBaseD0Ev), (18 bytes).
+    Removing filebase.o(i._ZN4mbed8FileBaseD1Ev), (56 bytes).
+    Removing filebase.o(.ARM.exidx), (8 bytes).
+    Removing filebase.o(.ARM.exidx), (8 bytes).
+    Removing filebase.o(.ARM.exidx), (8 bytes).
+    Removing filebase.o(.ARM.exidx), (8 bytes).
+    Removing filebase.o(.ARM.exidx), (8 bytes).
+    Removing filebase.o(.ARM.exidx), (8 bytes).
+    Removing filebase.o(.ARM.exidx), (8 bytes).
+    Removing filepath.o(.rev16_text), (4 bytes).
+    Removing filepath.o(.revsh_text), (4 bytes).
+    Removing filepath.o(.ARM.exidx), (8 bytes).
+    Removing filepath.o(.ARM.exidx), (8 bytes).
+    Removing filepath.o(.ARM.exidx), (8 bytes).
+    Removing filepath.o(.ARM.exidx), (8 bytes).
+    Removing filepath.o(.ARM.exidx), (8 bytes).
+    Removing filepath.o(.ARM.exidx), (8 bytes).
+    Removing filepath.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(.rev16_text), (4 bytes).
+    Removing filesystemlike.o(.revsh_text), (4 bytes).
+    Removing filesystemlike.o(i._ZN4mbed14FileSystemLike7opendirEv), (52 bytes).
+    Removing filesystemlike.o(i._ZN4mbed14FileSystemLikeC2EPKc), (32 bytes).
+    Removing filesystemlike.o(i._ZN4mbed14FileSystemLikeD0Ev), (18 bytes).
+    Removing filesystemlike.o(i._ZN4mbed14FileSystemLikeD2Ev), (16 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing i2c.o(.rev16_text), (4 bytes).
+    Removing i2c.o(.revsh_text), (4 bytes).
+    Removing i2c.o(i._ZN4mbed3I2C4readEi), (28 bytes).
+    Removing i2c.o(i._ZN4mbed3I2C4stopEv), (12 bytes).
+    Removing i2c.o(i._ZN4mbed3I2C5startEv), (12 bytes).
+    Removing i2c.o(i._ZN4mbed3I2C5writeEi), (16 bytes).
+    Removing i2c.o(i._ZN4mbed3I2C9frequencyEi), (28 bytes).
+    Removing i2c.o(.ARM.exidx), (8 bytes).
+    Removing i2c.o(.ARM.exidx), (8 bytes).
+    Removing i2c.o(.ARM.exidx), (8 bytes).
+    Removing i2c.o(.ARM.exidx), (8 bytes).
+    Removing i2c.o(.ARM.exidx), (8 bytes).
+    Removing i2c.o(.ARM.exidx), (8 bytes).
+    Removing i2c.o(.ARM.exidx), (8 bytes).
+    Removing i2c.o(.ARM.exidx), (8 bytes).
+    Removing i2c.o(.ARM.exidx), (8 bytes).
+    Removing pinmap.o(.rev16_text), (4 bytes).
+    Removing pinmap.o(.revsh_text), (4 bytes).
+    Removing pwmout_api.o(.rev16_text), (4 bytes).
+    Removing pwmout_api.o(.revsh_text), (4 bytes).
+    Removing pwmout_api.o(i.pwmout_free), (2 bytes).
+    Removing pwmout_api.o(i.pwmout_period), (32 bytes).
+    Removing pwmout_api.o(i.pwmout_pulsewidth), (32 bytes).
+    Removing pwmout_api.o(i.pwmout_pulsewidth_ms), (22 bytes).
+    Removing pwmout_api.o(i.pwmout_pulsewidth_us), (48 bytes).
+    Removing pwmout_api.o(i.pwmout_read), (58 bytes).
+    Removing serial_api.o(.rev16_text), (4 bytes).
+    Removing serial_api.o(.revsh_text), (4 bytes).
+    Removing serial_api.o(i.serial_break_clear), (14 bytes).
+    Removing serial_api.o(i.serial_break_set), (14 bytes).
+    Removing serial_api.o(i.serial_clear), (8 bytes).
+    Removing serial_api.o(i.serial_free), (16 bytes).
+    Removing serial_api.o(i.serial_getc), (22 bytes).
+    Removing serial_api.o(i.serial_irq_handler), (24 bytes).
+    Removing serial_api.o(i.serial_irq_set), (256 bytes).
+    Removing serial_api.o(i.serial_pinout_tx), (20 bytes).
+    Removing serial_api.o(i.serial_readable), (12 bytes).
+    Removing serial_api.o(i.uart0_irq), (24 bytes).
+    Removing serial_api.o(i.uart1_irq), (24 bytes).
+    Removing serial_api.o(i.uart2_irq), (24 bytes).
+    Removing serial_api.o(i.uart3_irq), (24 bytes).
+    Removing serial_api.o(i.uart4_irq), (24 bytes).
+    Removing serial_api.o(i.uart_irq), (64 bytes).
+    Removing serial_api.o(.bss), (20 bytes).
+    Removing board.o(.rev16_text), (4 bytes).
+    Removing board.o(.revsh_text), (4 bytes).
+    Removing lcdcontroller.o(.rev16_text), (4 bytes).
+    Removing lcdcontroller.o(.revsh_text), (4 bytes).
+    Removing lcdcontroller.o(i._ZN13LcdController5closeEv), (52 bytes).
+    Removing lcdcontroller.o(.ARM.exidx), (8 bytes).
+    Removing lcdcontroller.o(.ARM.exidx), (8 bytes).
+    Removing lcdcontroller.o(.ARM.exidx), (8 bytes).
+    Removing lcdcontroller.o(.ARM.exidx), (8 bytes).
+    Removing lcdcontroller.o(.ARM.exidx), (8 bytes).
+    Removing lcdcontroller.o(.ARM.exidx), (8 bytes).
+    Removing lcdcontroller.o(.ARM.exidx), (8 bytes).
+    Removing lcdcontroller.o(.ARM.exidx), (8 bytes).
+    Removing us_ticker.o(.rev16_text), (4 bytes).
+    Removing us_ticker.o(.revsh_text), (4 bytes).
+    Removing i2c_api.o(.rev16_text), (4 bytes).
+    Removing i2c_api.o(.revsh_text), (4 bytes).
+    Removing i2c_api.o(i.i2c_byte_read), (18 bytes).
+    Removing i2c_api.o(i.i2c_byte_write), (64 bytes).
+    Removing i2c_api.o(i.i2c_reset), (12 bytes).
+    Removing i2c_api.o(i.i2c_slave_address), (48 bytes).
+    Removing i2c_api.o(i.i2c_slave_mode), (60 bytes).
+    Removing i2c_api.o(i.i2c_slave_read), (92 bytes).
+    Removing i2c_api.o(i.i2c_slave_receive), (48 bytes).
+    Removing i2c_api.o(i.i2c_slave_write), (70 bytes).
+    Removing us_ticker_api.o(.rev16_text), (4 bytes).
+    Removing us_ticker_api.o(.revsh_text), (4 bytes).
+    Removing us_ticker_api.o(i.get_us_ticker_data), (8 bytes).
+    Removing ticker_api.o(.rev16_text), (4 bytes).
+    Removing ticker_api.o(.revsh_text), (4 bytes).
+    Removing ticker_api.o(i.ticker_get_next_timestamp), (26 bytes).
+    Removing ticker_api.o(i.ticker_insert_event), (80 bytes).
+    Removing ticker_api.o(i.ticker_read), (12 bytes).
+    Removing ticker_api.o(i.ticker_remove_event), (82 bytes).
+    Removing ticker_api.o(i.ticker_set_handler), (18 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
+    Removing stream.o(.constdata__ZTIN4mbed6StreamE), (12 bytes).
+    Removing stream.o(.constdata__ZTSN4mbed6StreamE), (15 bytes).
+    Removing adafruit_gfx.o(.constdata__ZTI12Adafruit_GFX), (8 bytes).
+    Removing adafruit_gfx.o(.constdata__ZTS12Adafruit_GFX), (15 bytes).
+    Removing display.o(.ARM.exidx), (8 bytes).
+    Removing display.o(.constdata__ZTI7Display), (32 bytes).
+    Removing display.o(.constdata__ZTS7Display), (9 bytes).
+    Removing filelike.o(.ARM.exidx), (8 bytes).
+    Removing filelike.o(.constdata__ZTIN4mbed8FileLikeE), (32 bytes).
+    Removing filelike.o(.constdata__ZTSN4mbed8FileLikeE), (17 bytes).
+    Removing retarget.o(.constdata__ZTIN4mbed10FileHandleE), (8 bytes).
+    Removing retarget.o(.constdata__ZTSN4mbed10FileHandleE), (20 bytes).
+    Removing ealcdboardgpio.o(.constdata__ZTI14EaLcdBoardGPIO), (12 bytes).
+    Removing ealcdboardgpio.o(.constdata__ZTS14EaLcdBoardGPIO), (17 bytes).
+    Removing ealcdboard.o(.constdata__ZTI10EaLcdBoard), (8 bytes).
+    Removing ealcdboard.o(.constdata__ZTS10EaLcdBoard), (13 bytes).
+    Removing gfxfb.o(.constdata__ZTI5GFXFb), (12 bytes).
+    Removing gfxfb.o(.constdata__ZTS5GFXFb), (7 bytes).
+    Removing filebase.o(.constdata__ZTIN4mbed8FileBaseE), (8 bytes).
+    Removing filebase.o(.constdata__ZTSN4mbed8FileBaseE), (17 bytes).
+    Removing filesystemlike.o(.constdata__ZTVN4mbed14FileSystemLikeE), (36 bytes).
+    Removing filesystemlike.o(i._ZN4mbed14FileSystemLike6removeEPKc), (8 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(i._ZN4mbed14FileSystemLike6renameEPKcS2_), (8 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(i._ZN4mbed14FileSystemLike7opendirEPKc), (6 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(i._ZN4mbed14FileSystemLike5mkdirEPKci), (8 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(.constdata__ZTVN4mbed9DirHandleE), (36 bytes).
+    Removing filesystemlike.o(.constdata__ZTVN4mbed13BaseDirHandleE), (36 bytes).
+    Removing filesystemlike.o(.constdata__ZTIN4mbed14FileSystemLikeE), (12 bytes).
+    Removing filesystemlike.o(.constdata__ZTIN4mbed13BaseDirHandleE), (12 bytes).
+    Removing filesystemlike.o(.constdata__ZTIN4mbed9DirHandleE), (8 bytes).
+    Removing filesystemlike.o(.constdata__ZTSN4mbed14FileSystemLikeE), (24 bytes).
+    Removing filesystemlike.o(.constdata__ZTSN4mbed9DirHandleE), (18 bytes).
+    Removing filesystemlike.o(.constdata__ZTSN4mbed13BaseDirHandleE), (23 bytes).
+    Removing filesystemlike.o(i._ZN4mbed9DirHandle7telldirEv), (8 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(i._ZN4mbed9DirHandle7seekdirEl), (2 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(i._ZN4mbed9DirHandleD2Ev), (2 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(i._ZN4mbed9DirHandleD0Ev), (16 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(i._ZN4mbed13BaseDirHandle8closedirEv), (18 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(i._ZN4mbed13BaseDirHandle7readdirEv), (50 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(i._ZN4mbed13BaseDirHandle7telldirEv), (6 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(i._ZN4mbed13BaseDirHandle7seekdirEl), (4 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(i._ZN4mbed13BaseDirHandle9rewinddirEv), (6 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(i._ZN4mbed13BaseDirHandleD1Ev), (4 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+    Removing filesystemlike.o(i._ZN4mbed13BaseDirHandleD0Ev), (18 bytes).
+    Removing filesystemlike.o(.ARM.exidx), (8 bytes).
+
+511 unused section(s) (total 16455 bytes) removed from the image.
+
+==============================================================================
+
+Image component sizes
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
+
+       296         54          0         14        120       5381   buffer.o
+        64          6          0          0          0      28333   cmsis_nvic.o
+      1526        302         76         36       5264     105774   main.o
+        40         12        228          0          0       1388   startup_lpc407x_8x_177x_8x.o
+        48          6          0          0          0       2125   sys.o
+      1040         62          0         16          0       5212   system_lpc407x_8x_177x_8x.o
+
+    ----------------------------------------------------------------------
+      3016        442        336         68       5384     148213   Object Totals
+         0          0         32          0          0          0   (incl. Generated)
+         2          0          0          2          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Member Name
+
+        60          8          0          0          0         84   __0sscanf.o
+        44          6          0          0          0         84   __2sprintf.o
+         8          0          0          0          0         68   __main.o
+       392          4         17          0          0         92   __printf_flags_ss_wp.o
+        14          0          0          0          0         68   __printf_wp.o
+         0          0          0          0          0          0   __rtentry.o
+        12          0          0          0          0          0   __rtentry2.o
+         6          0          0          0          0          0   __rtentry4.o
+        52          8          0          0          0          0   __scatter.o
+        26          0          0          0          0          0   __scatter_copy.o
+        28          0          0          0          0          0   __scatter_zi.o
+        28          0          0          0          0         68   _chval.o
+         6          0          0          0          0          0   _printf_a.o
+         6          0          0          0          0          0   _printf_c.o
+        44          0          0          0          0        108   _printf_char.o
+        48          6          0          0          0         96   _printf_char_common.o
+        36          4          0          0          0         80   _printf_char_file.o
+        40          0          0          0          0         68   _printf_charcount.o
+         6          0          0          0          0          0   _printf_d.o
+       120         16          0          0          0         92   _printf_dec.o
+         6          0          0          0          0          0   _printf_e.o
+         6          0          0          0          0          0   _printf_f.o
+      1050          0          0          0          0        216   _printf_fp_dec.o
+       764         10         38          0          0        100   _printf_fp_hex.o
+       128         16          0          0          0         84   _printf_fp_infnan.o
+         6          0          0          0          0          0   _printf_g.o
+       148          4         40          0          0        160   _printf_hex_int_ll_ptr.o
+         6          0          0          0          0          0   _printf_i.o
+       178          0          0          0          0         88   _printf_intcommon.o
+        10          0          0          0          0          0   _printf_l.o
+         6          0          0          0          0          0   _printf_lc.o
+        10          0          0          0          0          0   _printf_ll.o
+         6          0          0          0          0          0   _printf_lld.o
+         6          0          0          0          0          0   _printf_lli.o
+         6          0          0          0          0          0   _printf_llo.o
+         6          0          0          0          0          0   _printf_llu.o
+         6          0          0          0          0          0   _printf_llx.o
+       124         16          0          0          0         92   _printf_longlong_dec.o
+         6          0          0          0          0          0   _printf_ls.o
+         6          0          0          0          0          0   _printf_n.o
+         6          0          0          0          0          0   _printf_o.o
+       112          8          0          0          0        124   _printf_oct_int_ll.o
+         6          0          0          0          0          0   _printf_p.o
+        78          0          0          0          0        108   _printf_pad.o
+         0          0          0          0          0          0   _printf_percent.o
+         4          0          0          0          0          0   _printf_percent_end.o
+         6          0          0          0          0          0   _printf_s.o
+        82          0          0          0          0         80   _printf_str.o
+        36          0          0          0          0         84   _printf_truncate.o
+         6          0          0          0          0          0   _printf_u.o
+        44          0          0          0          0        108   _printf_wchar.o
+       188          6          8          0          0         92   _printf_wctomb.o
+         6          0          0          0          0          0   _printf_x.o
+       884          6          0          0          0        100   _scanf.o
+       332          0          0          0          0         96   _scanf_int.o
+        64          0          0          0          0         84   _sgetc.o
+        10          0          0          0          0         68   _sputc.o
+        64          0          0          0          0         92   _wcrtomb.o
+        22          0          0          0          0         80   abort.o
+       220          4        148          0          0         96   bigflt0.o
+      1910        128          0          0          0        672   btod.o
+        10          0          0          0          0         68   c89vfprintf.o
+        48         34          0          0          0         76   defsig_abrt_inner.o
+        14          0          0          0          0         80   defsig_abrt_outer.o
+        10          0          0          0          0         68   defsig_exit.o
+        50          0          0          0          0         88   defsig_general.o
+        48         34          0          0          0         76   defsig_pvfn_inner.o
+        14          0          0          0          0         80   defsig_pvfn_outer.o
+        80         58          0          0          0         76   defsig_rtmem_inner.o
+        14          0          0          0          0         80   defsig_rtmem_outer.o
+        52         38          0          0          0         76   defsig_rtred_inner.o
+        14          0          0          0          0         80   defsig_rtred_outer.o
+        76          0          0          0          0         88   fclose.o
+         8          0          0          0          0         68   ferror.o
+       100          4          0          0          0        120   fflush.o
+       470          0          0          0          0         88   flsbuf.o
+       236          4          0          0          0        128   fopen.o
+        26          0          0          0          0         68   fputc.o
+       248          6          0          0          0         84   fseek.o
+        66          0          0          0          0         76   ftell.o
+        94          0          0          0          0         80   h1_alloc.o
+        52          0          0          0          0         68   h1_extend.o
+        78          0          0          0          0         80   h1_free.o
+        14          0          0          0          0         84   h1_init.o
+         8          0          0          0          0         84   heapauxmm.o
+         4          0          0          0          0        136   hguard.o
+         0          0          0          0          0          0   indicate_semi.o
+        36         10          0          0          0         80   init_aeabi.o
+       138          0          0          0          0        168   init_alloc.o
+       312         46          0          0          0        112   initio.o
+        18          0          0          0          0         76   isspace.o
+        44         10        272          0          0         76   lc_ctype_c.o
+        44         10         28          0          0         76   lc_numeric_c.o
+         2          0          0          0          0          0   libinit.o
+        50          0          0          0          0          0   libinit2.o
+         0          0          0          0          0          0   libshutdown2.o
+       138          0          0          0          0         80   lludiv10.o
+         0          0          0          0          0          0   maybetermalloc1.o
+        16          4          0          0          0         76   rt_ctype_table.o
+         8          4          0          0          4         68   rt_eh_globals_addr.o
+         8          4          0          0          4         68   rt_errno_addr.o
+         8          4          0          0          4         68   rt_heap_descriptor.o
+         8          4          0          0         20         68   rt_locale.o
+        68          0          0          0          0         68   rt_memclr.o
+        78          0          0          0          0         80   rt_memclr_w.o
+       100          0          0          0          0         80   rt_memcpy_w.o
+         8          4          0          0          4         68   rt_new_handler_addr.o
+        44          8          0          0          0         84   scanf_char.o
+        20          0          0          0          0         68   setbuf.o
+        70          0          0          0          0         80   setvbuf.o
+       240          6          0          0          0        156   stdio.o
+         0          0          0         12        252          0   stdio_streams.o
+       128          0          0          0          0         68   strcmpv7m.o
+        62          0          0          0          0         76   strlen.o
+       150          0          0          0          0         80   strncmp.o
+        12          4          0          0          0         68   sys_exit.o
+        14          0          0          0          0         76   sys_wrch.o
+         2          0          0          0          0         68   use_no_semi.o
+        10          0          0          0          0         68   vfprintf.o
+        80         12          0          0          0        104   arm_exceptions_globs.o
+        60          0          0          0          0        108   arm_exceptions_mem.o
+        26          0          0          0          0         76   arm_exceptions_terminate.o
+         4          0          0          0          0         68   arm_newhandler_noexceptions.o
+        16          0          0          0          0         68   cxa_guard_acquire.o
+        40          6          0          0          0         76   new.o
+         6          0          0          0          0         68   pure_virt.o
+       926         10       1319          0          0      19372   adafruit_gfx.o
+       512         74        112          8          0      45516   display.o
+      1810         52         28          0       1024      24420   ealcdboard.o
+       370         30         28          0          0      39032   ealcdboardgpio.o
+       350          4         44          0          0       6004   gfxfb.o
+      1026         62          0          1          0       6836   lcdcontroller.o
+      1694         98          0         16          0       7868   sdram.o
+        12          0          0          0          0        116   dretinf.o
+        86          4          0          0          0        132   f2d.o
+       140          4          0          0          0        132   fnaninf.o
+        10          0          0          0          0        116   fpinit.o
+         4          0          0          0          0        116   printf1.o
+         4          0          0          0          0        116   printf2.o
+         0          0          0          0          0          0   usenofp.o
+        48          0          0          0          0        124   fpclassify.o
+       370         62        176          0          0       6592   analogin_api.o
+        76         54          0          0          0        711   assert.o
+       244         82          0          0          0       1307   board.o
+        32          4          0          0          0       1148   error.o
+       102         12         16          4          0       2168   filebase.o
+       102         10         60          0          0       3816   filelike.o
+       212          0          0          0          0       6872   filepath.o
+       296         82          0          0          0      33068   gpio.o
+       330        154          0          0          0       3274   gpio_api.o
+       192         16          0          4          0       4736   i2c.o
+      1006        122        296          0          0      12649   i2c_api.o
+       256        148          0          0          0       1938   pinmap.o
+       256         76          0          0          0       3236   pinmap_common.o
+       438         68        466          4          0       4499   pwmout_api.o
+       686         68         67          0         64      16822   retarget.o
+      1040        144        498         16          0       7427   serial_api.o
+       184         14         68          0          0      39080   stream.o
+        90          0          0          0          0       1177   ticker_api.o
+       196         48          0          4          0      30128   us_ticker.o
+        16          6         28          8          0       1196   us_ticker_api.o
+        82          4          0          0          0       2639   wait_api.o
+      2390        416        256        100       5264      26743   os_core.o
+       220         36          0          0          0        432   os_cpu_a.o
+       848        154          0          6        512      17912   os_cpu_c.o
+       348        230        116          0          0       3666   os_dbg.o
+       124         14          0          0          0       1342   os_flag.o
+        16          0          0          0          0       4188   os_hooks.o
+        88         14          0          0          0        605   os_mem.o
+       924         58          0          0          0      12256   os_mutex.o
+        84         10          0          0          0        635   os_q.o
+       408         26          0          0          0       2678   os_sem.o
+      1150        116          0          0          0       7368   os_task.o
+       216         30          0          0          0       1540   os_time.o
+       648        138          0          0          0       4319   os_tmr.o
+
+    ----------------------------------------------------------------------
+     32160       3318       4140        188       7152     426471   Library Totals
+        56          0         11          5          0          0   (incl. Padding)
+
+    ----------------------------------------------------------------------
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Library Name
+
+     11210        546        551         12        288       7836   c_w.l
+       232         18          0          0          0        568   cpprt_w.l
+      6688        330       1531         25       1024     149048   ebb.lib
+       256          8          0          0          0        728   fz_wm.l
+        48          0          0          0          0        124   m_wm.l
+      6206       1174       1675         40         64     184483   mbed.lib
+      7464       1242        372        106       5776      83684   uCOS-II.lib
+
+    ----------------------------------------------------------------------
+     32160       3318       4140        188       7152     426471   Library Totals
+
+    ----------------------------------------------------------------------
+
+==============================================================================
+
+
+      Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
+
+     35176       3760       4476        256      12536     544096   Grand Totals
+     35176       3760       4476        256      12536     544096   ELF Image Totals
+     35176       3760       4476        256          0          0   ROM Totals
+
+==============================================================================
+
+    Total RO  Size (Code + RO Data)                39652 (  38.72kB)
+    Total RW  Size (RW Data + ZI Data)             12792 (  12.49kB)
+    Total ROM Size (Code + RO Data + RW Data)      39908 (  38.97kB)
+
+==============================================================================
+

@@ -1,0 +1,11 @@
+.\objects\cmsis_nvic.o: ..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis_nvic.c
+.\objects\cmsis_nvic.o: ..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis_nvic.h
+.\objects\cmsis_nvic.o: ..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis.h
+.\objects\cmsis_nvic.o: ..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\LPC407x_8x_177x_8x.h
+.\objects\cmsis_nvic.o: ..\mbed_nxp_lpc408x\targets\cmsis\core_cm4.h
+.\objects\cmsis_nvic.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\cmsis_nvic.o: ..\mbed_nxp_lpc408x\targets\cmsis\core_cmInstr.h
+.\objects\cmsis_nvic.o: ..\mbed_nxp_lpc408x\targets\cmsis\core_cmFunc.h
+.\objects\cmsis_nvic.o: ..\mbed_nxp_lpc408x\targets\cmsis\core_cm4_simd.h
+.\objects\cmsis_nvic.o: ..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\system_LPC407x_8x_177x_8x.h
+.\objects\cmsis_nvic.o: ..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis_nvic.h

@@ -1,0 +1,14 @@
+.\objects\pinmap_common.o: common\pinmap_common.c
+.\objects\pinmap_common.o: .\hal\pinmap.h
+.\objects\pinmap_common.o: .\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088\PinNames.h
+.\objects\pinmap_common.o: .\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis.h
+.\objects\pinmap_common.o: .\targets\cmsis\TARGET_NXP\TARGET_LPC408X\LPC407x_8x_177x_8x.h
+.\objects\pinmap_common.o: .\targets\cmsis\core_cm4.h
+.\objects\pinmap_common.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\pinmap_common.o: .\targets\cmsis\core_cmInstr.h
+.\objects\pinmap_common.o: .\targets\cmsis\core_cmFunc.h
+.\objects\pinmap_common.o: .\targets\cmsis\core_cm4_simd.h
+.\objects\pinmap_common.o: .\targets\cmsis\TARGET_NXP\TARGET_LPC408X\system_LPC407x_8x_177x_8x.h
+.\objects\pinmap_common.o: .\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis_nvic.h
+.\objects\pinmap_common.o: .\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis.h
+.\objects\pinmap_common.o: .\api\mbed_error.h
