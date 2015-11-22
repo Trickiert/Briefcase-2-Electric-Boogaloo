@@ -14,6 +14,8 @@
 #include <MMA7455.h>
 #include <display.h>
 #include "buffer.h"
+#include "timer.h"
+#include "gpioPin.h"
 
 /*
 *********************************************************************************************************
@@ -24,7 +26,8 @@
 typedef enum {
 	APP_TASK_BUTTONS_PRIO = 4,
 	APP_TASK_ACC_PRIO,
-	APP_TASK_POT_PRIO,	
+	APP_TASK_POT_PRIO,
+  APP_TASK_TIMER_PRIO,		
   APP_TASK_LED1_PRIO,
   APP_TASK_LED2_PRIO,	
 	APP_TASK_LCD_PRIO,	
@@ -40,6 +43,7 @@ typedef enum {
 #define  APP_TASK_BUTTONS_STK_SIZE           256
 #define  APP_TASK_ACC_STK_SIZE               256
 #define  APP_TASK_POT_STK_SIZE               256
+#define  APP_TASK_TIMER_STK_SIZE             256
 #define  APP_TASK_LED1_STK_SIZE              256
 #define  APP_TASK_LED2_STK_SIZE              256
 #define  APP_TASK_LCD_STK_SIZE               256
@@ -47,6 +51,7 @@ typedef enum {
 static OS_STK appTaskButtonsStk[APP_TASK_BUTTONS_STK_SIZE];
 static OS_STK appTaskAccStk[APP_TASK_ACC_STK_SIZE];
 static OS_STK appTaskPotStk[APP_TASK_POT_STK_SIZE];
+static OS_STK appTaskTimerStk[APP_TASK_TIMER_STK_SIZE];
 static OS_STK appTaskLED1Stk[APP_TASK_LED1_STK_SIZE];
 static OS_STK appTaskLED2Stk[APP_TASK_LED2_STK_SIZE];
 static OS_STK appTaskLCDStk[APP_TASK_LCD_STK_SIZE];
@@ -60,6 +65,7 @@ static OS_STK appTaskLCDStk[APP_TASK_LCD_STK_SIZE];
 static void appTaskButtons(void *pdata);
 static void appTaskAcc(void *pdata);
 static void appTaskPot(void *pdata);
+static void appTaskTimer(void *pdata);
 static void appTaskLED1(void *pdata);
 static void appTaskLED2(void *pdata);
 static void appTaskLCD(void *pdata);
@@ -76,6 +82,7 @@ typedef enum {
 	RB_LED2,
 	RB_ACC,
 	RB_POT,	
+	RB_TIMER,
 	RB_LEFT,
 	RB_RIGHT,
 	RB_UP,
@@ -90,6 +97,10 @@ typedef enum {
 	JDOWN,
 	JCENTER
 } buttonId_t;
+
+typedef enum {
+	TIMER_TASK,
+} taskNames_t;
 
 enum {
 	FLASH_MIN_DELAY     = 1,
@@ -118,6 +129,7 @@ bool accInit(MMA7455& acc); //prototype of init routine
 int32_t accVal[3];
 static AnalogIn potentiometer(P0_23);
 static Display *d = Display::theDisplay();
+static softTimer_t timer[1];
 
 static bool flashing[2] = {false, false};
 static int32_t flashingDelay[2] = {FLASH_INITIAL_DELAY, FLASH_INITIAL_DELAY};
@@ -163,6 +175,11 @@ int main() {
                (void *)0,
                (OS_STK *)&appTaskPotStk[APP_TASK_POT_STK_SIZE - 1],
                APP_TASK_POT_PRIO);
+							 
+	OSTaskCreate(appTaskTimer,                               
+               (void *)0,
+               (OS_STK *)&appTaskTimerStk[APP_TASK_TIMER_STK_SIZE - 1],
+               APP_TASK_TIMER_PRIO);
 
 	OSTaskCreate(appTaskLED1,                               
                (void *)0,
@@ -178,6 +195,8 @@ int main() {
                (void *)0,
                (OS_STK *)&appTaskLCDStk[APP_TASK_LCD_STK_SIZE - 1],
                APP_TASK_LCD_PRIO);
+							 
+							 
   
   /* Start the OS */
   OSStart();                                                  
@@ -197,6 +216,9 @@ static void appTaskButtons(void *pdata) {
   SysTick_Config(SystemCoreClock / OS_TICKS_PER_SEC);
 	
   message_t msg;
+	taskNames_t t;
+	
+	//softTimerInit(&timer[TIMER_TASK], 1, appTaskTimer);
 	
 	int a = 0;
 	
@@ -262,6 +284,13 @@ static void appTaskPot(void *pdata) {
   }
 }
 
+static void appTaskTimer(void *pdata) {
+	message_t msg;
+	while (true) {
+		msg.id = RB_TIMER;
+	}
+}
+
 static void appTaskLED1(void *pdata) {
   while (true) {
 		if (flashing[0]) {
@@ -286,6 +315,8 @@ static void appTaskLCD(void *pdata) {
 	//temp variables while struct isnt working, change to declaration when struct works
 	int locked = 0;
 	int armed = 0;
+	float timerVal = 0;
+	float timeDisplay = 0;
 	int codePointer = 0;
 	int codeNum[4] = {0,0,0,0};
 	int codeNumX[4] = {258,276,294,312};
@@ -330,42 +361,53 @@ static void appTaskLCD(void *pdata) {
 				break;
 			}
 			case RB_POT : {
-				float tempPot = msg.fdata[0];
-				tempPot = 100*(tempPot * 1.2F);
-				
-        d->setCursor(180, 38);				
-		    d->printf("INTERVAL  : %3.0f\n", tempPot);	
-        barChart(msg.fdata[0]);		
+				if (!armed) {
+					float tempPot = msg.fdata[0];
+					tempPot = 100*(tempPot * 1.2F);
+					
+					d->setCursor(180, 38);				
+					d->printf("INTERVAL  : %3.0f\n", tempPot);	
+					barChart(msg.fdata[0]);		
+					timerVal = tempPot;
+				}
+				break;
+			}
+			case RB_TIMER : {
+				timerVal = timerVal - 1;
+				if (timerVal == 0){
+					//alarm go
+				}
 				break;
 			}
 			case RB_ACC : {
 				float accVal0;
 				float accVal1;
 				float accVal2;
-				if((msg.fdata[0] > (accVal0 - 5)) && (msg.fdata[0] < (accVal0 + 5))) {
-					d->setCursor(2,2);
-					d->printf("No Change");
-				}
-				else if((msg.fdata[1] > (accVal1 - 5)) && (msg.fdata[1] < (accVal1 + 5))) {
-					d->setCursor(2,2);
-					d->printf("No Change");
-				}
-				else if((msg.fdata[2] > (accVal2 - 5)) && (msg.fdata[2] < (accVal2 + 5))) {
-					d->setCursor(2,2);
-					d->printf("No Change");
-				}
-				else {
-					accVal0 = msg.fdata[0];
-					accVal1 = msg.fdata[1];
-					accVal2 = msg.fdata[2];
-					
-					d->setCursor(2,2);
-					d->printf("BIG Change!");
-				}
 				
-				
-        d->setCursor(4, 150);
-		    d->printf("Acc = (%05d, %05d, %05d)", accVal[0], accVal[1], accVal[2]);
+				if (armed) {
+					if((msg.fdata[0] > (accVal0 - 5)) && (msg.fdata[0] < (accVal0 + 5))) {
+						d->setCursor(2,2);
+						d->printf("No Change");
+					}
+					else if((msg.fdata[1] > (accVal1 - 5)) && (msg.fdata[1] < (accVal1 + 5))) {
+						d->setCursor(2,2);
+						d->printf("No Change");
+					}
+					else if((msg.fdata[2] > (accVal2 - 5)) && (msg.fdata[2] < (accVal2 + 5))) {
+						d->setCursor(2,2);
+						d->printf("No Change");
+					}
+					else {
+						accVal0 = msg.fdata[0];
+						accVal1 = msg.fdata[1];
+						accVal2 = msg.fdata[2];
+						
+						d->setCursor(2,2);
+						d->printf("BIG Change!");
+					}				
+					d->setCursor(4, 150);
+					d->printf("Acc = (%05d, %05d, %05d)", accVal[0], accVal[1], accVal[2]);
+				}
 				break;
 			}
 			case RB_UP : {
@@ -505,14 +547,14 @@ bool accInit(MMA7455& acc) {
   return result;
 }
 
-void incDelay(void) {
+/*void incDelay(void) {
 	if (flashingDelay[0] + FLASH_DELAY_STEP > FLASH_MAX_DELAY) {
 		flashingDelay[0] = FLASH_MAX_DELAY;
 	}
 	else {
 		flashingDelay[0] += FLASH_DELAY_STEP;
 	}
-}
+}*/
 
 /*void decDelay(void) {
 	if (flashingDelay[0] - FLASH_DELAY_STEP < FLASH_MIN_DELAY) {

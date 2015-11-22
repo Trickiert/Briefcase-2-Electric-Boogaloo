@@ -22,23 +22,30 @@ Dialog DLL:      TCM.DLL V1.14.6.0
  
 <h2>Project:</h2>
 C:\Users\Cameron\Documents\GitHub\Briefcase 2 Electric Boogaloo\briefcase\briefcase.uvprojx
-Project File Date:  11/19/2015
+Project File Date:  11/22/2015
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 1 (build 61)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
 Build Project 'briefcase' - Target 'NXP LPC4088'
 compiling main.cpp...
+C:\Users\Cameron\Documents\GitHub\Briefcase 2 Electric Boogaloo\briefcase\src\main.cpp(219): warning:  #177-D: variable "t" was declared but never referenced
+        taskNames_t t;
+C:\Users\Cameron\Documents\GitHub\Briefcase 2 Electric Boogaloo\briefcase\src\main.cpp(288): warning:  #550-D: variable "msg" was set but never used
+        message_t msg;
+C:\Users\Cameron\Documents\GitHub\Briefcase 2 Electric Boogaloo\briefcase\src\main.cpp(319): warning:  #177-D: variable "timeDisplay" was declared but never referenced
+        float timeDisplay = 0;
+src\main.cpp: 3 warnings, 0 errors
 linking...
 C:\Users\Cameron\Documents\GitHub\Briefcase 2 Electric Boogaloo\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD\LPC407X_8X.sct(28): warning: L6314W: No section matches pattern *.o(SPIFI_MEM).
 Finished: 0 information, 1 warning and 0 error messages.
-".\Objects\semaphore.axf" - 0 Error(s), 1 Warning(s).
+".\Objects\semaphore.axf" - 0 Error(s), 4 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   C:\Users\Cameron\Documents\GitHub\Briefcase 2 Electric Boogaloo\briefcase\RTE
   C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include
 
 <h2>Collection of Component Files used:</h2>
-Build Time Elapsed:  00:00:07
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>
