@@ -404,13 +404,12 @@ ARM Macro Assembler    Page 7
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp --apcs=int
 erwork --depend=.\objects\startup_lpc407x_8x_177x_8x.d -o.\objects\startup_lpc4
-07x_8x_177x_8x.o -I"C:\Users\Cameron\Google Drive\Uni Group Work\Operating Syst
-ems And Concurrancy ^_^\New\BC\en0572_ws\ringbuffer\RTE" -IC:\Keil_v5\ARM\PACK\
-Keil\LPC4000_DFP\1.1.0\Device\Include -IC:\Keil_v5\ARM\CMSIS\Include --predefin
-e="__UVISION_VERSION SETA 517" --predefine="CORE_M4 SETA 1" --predefine="CORE_M
-4 SETA 1" --list=.\listings\startup_lpc407x_8x_177x_8x.lst ..\mbed_nxp_lpc408x\
-targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD\startup_LPC407x_8x_17
-7x_8x.S
+07x_8x_177x_8x.o -I"C:\Users\Cameron\Documents\GitHub\Briefcase 2 Electric Boog
+aloo\ringbuffer\RTE" -IC:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Includ
+e -IC:\Keil_v5\ARM\CMSIS\Include --predefine="__UVISION_VERSION SETA 517" --pre
+define="CORE_M4 SETA 1" --predefine="CORE_M4 SETA 1" --list=.\listings\startup_
+lpc407x_8x_177x_8x.lst ..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC4
+08X\TOOLCHAIN_ARM_STD\startup_LPC407x_8x_177x_8x.S
 
 
 

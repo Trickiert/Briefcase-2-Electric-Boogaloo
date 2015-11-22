@@ -98,9 +98,16 @@ enum {
 	FLASH_DELAY_STEP    = 50
 };
 
+struct caseStatus {
+	int locked;
+	int armed;
+	int codePointer;
+	int codeNum[4];
+};
+
 static bool buttonPressedAndReleased(buttonId_t button);
-static void incDelay(void);
-static void decDelay(void);
+//static void incDelay(void);
+//static void decDelay(void);
 static void barChart(float value);
 
 static DigitalOut led1(P1_18);
@@ -191,6 +198,8 @@ static void appTaskButtons(void *pdata) {
 	
   message_t msg;
 	
+	int a = 0;
+	
   /* Task main loop */
   while (true) {
     if (buttonPressedAndReleased(JLEFT)) {
@@ -206,14 +215,16 @@ static void appTaskButtons(void *pdata) {
 		else if (buttonPressedAndReleased(JUP)) {
 			msg.id = RB_UP;
 			safeBufferPut(&msg);
+			a = a + 1;
+			d->setCursor(2, 230);
+			d->printf("times called in buttonP&R: %i",a);
+			//OSTimeDlyHMSM(0,0,0,999);
 		}
-		else if (flashing[0] && buttonPressedAndReleased(JDOWN)) {
-			incDelay();
+		else if (buttonPressedAndReleased(JDOWN)) {
 			msg.id = RB_DOWN;
 			safeBufferPut(&msg);
 		}
-		else if (flashing[0] && buttonPressedAndReleased(JCENTER)) {
-			incDelay();
+		else if (buttonPressedAndReleased(JCENTER)) {
 			msg.id = RB_CENTER;
 			safeBufferPut(&msg);
 		}
@@ -243,7 +254,7 @@ static void appTaskPot(void *pdata) {
 	
   while (true) {
 		potVal = 1.0F - potentiometer.read();
-		flashingDelay[1] = int(potVal * 1000);
+		//flashingDelay[1] = int(potVal * 1000);
 		msg.id = RB_POT;
 		msg.fdata[0] = potVal;
 		safeBufferPut(&msg);
@@ -272,14 +283,17 @@ static void appTaskLED2(void *pdata) {
 
 static void appTaskLCD(void *pdata) {
 	
+	//temp variables while struct isnt working, change to declaration when struct works
+	int locked = 0;
+	int armed = 0;
+	int codePointer = 0;
+	int codeNum[4] = {0,0,0,0};
+	int codeNumX[4] = {258,276,294,312};
+	int correctCode[4] = {0,1,2,3};
+	//***************
+	
 	message_t msg;
-	int arr[7] = {0,0,3,0,0,0,0}; 
-	/*
-	0 = (0)locked/(1)unlocked
-	1 = (0)unarmed/(1)armed
-	2 = which bit of password pointed at(bits: 3,4,5,6)
-	3,4,5,6 = password numbers.
-	*/
+	
 	/* Initialise the display */	
 	d->fillScreen(WHITE);
 	d->setTextColor(BLACK, WHITE);
@@ -300,8 +314,10 @@ static void appTaskLCD(void *pdata) {
 	d->setCursor(258, 108);
 	d->printf("-  -  -  -");
 	
+	int i = 0;
 	while (true) {
 		safeBufferGet(&msg);
+		
 		switch (msg.id) {
 			case RB_LED1 : {
  		    d->setCursor(4,44);
@@ -353,50 +369,99 @@ static void appTaskLCD(void *pdata) {
 				break;
 			}
 			case RB_UP : {
-        if (arr[1] == 0) { 
-					if (arr[0] == 0) {
-						arr[0] = 1;
+        if (!armed) { 
+					if (!locked) {
+						locked = 1;
 						d->setCursor(240, 60);
 						d->printf(":  LOCKED   ");
 					}
 				}
-				else if (arr[1] == 1) {
-					arr[arr[2]] = (arr[arr[2]] + 1);
-					d->setCursor(258, 96);
-					d->printf("%i",arr[arr[2]]);
+				else if (armed) {
+					i = i + 1;
+					d->setCursor(300, 250);
+					d->printf("1: %i\n",codeNum[codePointer]);
+					
+					if (codeNum[codePointer] == 9) {
+						codeNum[codePointer] = 0;
+					}
+					else {
+					codeNum[codePointer] = (codeNum[codePointer] + 1);
+					}
+					d->setCursor(codeNumX[codePointer], 96);
+					d->printf("%i",codeNum[codePointer]);
+					
+					d->setCursor(300, 260);
+					d->printf("2: %i",codeNum[codePointer]);
+					d->setCursor(250, 240);
+					d->printf("times called in loop: %i",i);
 				}
 				break;
 			}
 			case RB_DOWN : {
-        if ((arr[0] == 1) && (arr[1] == 0)) {
-					arr[0] = 0;
+        if (locked && !armed) {
+					locked = 0;
 					d->setCursor(240, 60);
 					d->printf(":  UNLOCKED   ");
+				}
+				else if (armed) {
+					if (codeNum[codePointer] == 0) {
+						codeNum[codePointer] = 9;
+					}
+					else {
+					codeNum[codePointer] = (codeNum[codePointer] - 1);
+					}
+					d->setCursor(codeNumX[codePointer], 96);
+					d->printf("%i",codeNum[codePointer]);
 				}
 				break;
 			}
 			case RB_LEFT : {
-				if (arr[0] == 1) {
-					arr[1] = 1;
-					d->setCursor(240, 24);
-					d->printf(":  ARMED    ");
+				if (!armed)
+				{
+					if (locked) {
+						armed = 1;
+						d->setCursor(240, 24);
+						d->printf(":  ARMED    ");
+					}
+				}
+				else if (armed) {
+					if (codePointer == 0) {
+						codePointer = 3;
+					}
+					else {
+					codePointer = codePointer - 1;
+					}
 				}
 				break;
 			}
 			case RB_RIGHT : {
-        d->setCursor(4, 94);
-		    d->printf("RIGHT   ");
+        if (armed) {
+					if (codePointer == 3) {
+						codePointer = 0;
+					}
+					else {
+					codePointer = codePointer + 1;
+					}
+				}
 				break;
 			}
 			case RB_CENTER : {
-        d->setCursor(4, 94);
-		    d->printf("CENTER   ");
+				if (armed) {
+					if ((correctCode[0] == codeNum[0]) && (correctCode[1] == codeNum[1]) && (correctCode[2] == codeNum[2]) && (correctCode[3] == codeNum[3])) {
+						d->setCursor(250,250);	
+						d->printf("HI");
+						armed = 0;
+						d->setCursor(240, 24);
+						d->printf(":  UNARMED    ");
+					}
+				}
 				break;
 			}
 			default : {
 				break;
 			}
 		}
+		//OSTimeDlyHMSM(0,0,0,1000);
 	}
 }
 
@@ -449,14 +514,14 @@ void incDelay(void) {
 	}
 }
 
-void decDelay(void) {
+/*void decDelay(void) {
 	if (flashingDelay[0] - FLASH_DELAY_STEP < FLASH_MIN_DELAY) {
 		flashingDelay[0] = FLASH_MIN_DELAY;
 	}
 	else {
 		flashingDelay[0] -= FLASH_DELAY_STEP;
 	}
-}
+}*/
 
 static void barChart(float value) {
 	uint16_t const max = 100;
