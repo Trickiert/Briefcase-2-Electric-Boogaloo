@@ -6,6 +6,8 @@ Removing Unused input sections from the image.
 
     Removing main.o(.rev16_text), (4 bytes).
     Removing main.o(.revsh_text), (4 bytes).
+    Removing main.o(i._Z14sysTickHandlerv), (48 bytes).
+    Removing main.o(.ARM.exidx), (8 bytes).
     Removing main.o(.ARM.exidx), (8 bytes).
     Removing main.o(.ARM.exidx), (8 bytes).
     Removing main.o(.ARM.exidx), (8 bytes).
@@ -538,7 +540,7 @@ Removing Unused input sections from the image.
     Removing filesystemlike.o(i._ZN4mbed13BaseDirHandleD0Ev), (18 bytes).
     Removing filesystemlike.o(.ARM.exidx), (8 bytes).
 
-533 unused section(s) (total 16871 bytes) removed from the image.
+535 unused section(s) (total 16927 bytes) removed from the image.
 
 ==============================================================================
 
@@ -549,14 +551,14 @@ Image component sizes
 
        248         40          0         14        144       4580   buffer.o
         64          6          0          0          0       1361   cmsis_nvic.o
-      3252        726        263         40       7408     107273   main.o
+      3252        726        263         40       7408     107325   main.o
         40         12        228          0          0       1316   startup_lpc407x_8x_177x_8x.o
         48          6          0          0          0       2089   sys.o
       1040         62          0         16          0       5028   system_lpc407x_8x_177x_8x.o
         32         10          0          8          0      28368   timer.o
 
     ----------------------------------------------------------------------
-      4728        862        524         80       7552     150015   Object Totals
+      4728        862        524         80       7552     150067   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          4          0          1          2          0          0   (incl. Padding)
 
@@ -767,8 +769,8 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     37584       4180       4664        268      14704     566394   Grand Totals
-     37584       4180       4664        268      14704     566394   ELF Image Totals
+     37584       4180       4664        268      14704     566446   Grand Totals
+     37584       4180       4664        268      14704     566446   ELF Image Totals
      37584       4180       4664        268          0          0   ROM Totals
 
 ==============================================================================

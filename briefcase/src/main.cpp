@@ -97,6 +97,12 @@ typedef enum {
 	JCENTER
 } buttonId_t;
 
+//SysTick Timer
+typedef enum {
+	TIMER_TASK,POT_TIMER
+} taskNames_t;
+
+
 enum {
 	FLASH_MIN_DELAY     = 1,
 	FLASH_INITIAL_DELAY = 500,
@@ -146,7 +152,8 @@ int main() {
 	d->printf("EN0572 Assignment                         Cameron Bennett & George Coldham");
 
   /* Initialise the OS */
-  OSInit();      
+  OSInit();
+	
 
   /* Create the tasks */
   OSTaskCreate(appTaskButtons,                               
@@ -546,6 +553,20 @@ bool accInit(MMA7455& acc) {
   }
   // screen->printf("MMA7455 initialised\n");
   return result;
+}
+
+/*
+ * Handler for the SysTick interrupt
+ * Update the soft timers for the Pot and Timer Count
+ */
+void sysTickHandler(void) {
+	taskNames_t t;
+   
+	for (t = TIMER_TASK; t < POT_TIMER;) {
+		if (timer[t].count > 0) {
+		  timer[t].count -= 1;
+		}
+	}
 }
 
 /*void incDelay(void) {

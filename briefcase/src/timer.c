@@ -41,8 +41,8 @@ void TIMER1_IRQHandler(void) {
 	timer1UserDefinedHandler(); /* call the user-defined handler */
 	LPC_TIM1->IR |= (1UL << 0); /* clear the interrupt on MR0 */
 }
-
-//void SysTick_Handler(void) {
-	//sysTickUserDefinedHandler();
-//}
+/* Breaks Main SysTick
+void SysTick_Handler(void) {
+	sysTickUserDefinedHandler();
+}*/
 
