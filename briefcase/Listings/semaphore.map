@@ -25,6 +25,11 @@ Removing Unused input sections from the image.
     Removing buffer.o(.ARM.exidx), (8 bytes).
     Removing buffer.o(.ARM.exidx), (8 bytes).
     Removing buffer.o(.ARM.exidx), (8 bytes).
+    Removing timer.o(.rev16_text), (4 bytes).
+    Removing timer.o(.revsh_text), (4 bytes).
+    Removing timer.o(i.softTimerInit), (18 bytes).
+    Removing timer.o(i.sysTickInit), (44 bytes).
+    Removing timer.o(i.timer1Init), (104 bytes).
     Removing cmsis_nvic.o(.rev16_text), (4 bytes).
     Removing cmsis_nvic.o(.revsh_text), (4 bytes).
     Removing cmsis_nvic.o(i.NVIC_GetVector), (20 bytes).
@@ -533,7 +538,7 @@ Removing Unused input sections from the image.
     Removing filesystemlike.o(i._ZN4mbed13BaseDirHandleD0Ev), (18 bytes).
     Removing filesystemlike.o(.ARM.exidx), (8 bytes).
 
-528 unused section(s) (total 16697 bytes) removed from the image.
+533 unused section(s) (total 16871 bytes) removed from the image.
 
 ==============================================================================
 
@@ -543,14 +548,15 @@ Image component sizes
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   Object Name
 
        248         40          0         14        144       4580   buffer.o
-        64          6          0          0          0      28225   cmsis_nvic.o
-      3220        724        263         40       7372     106809   main.o
+        64          6          0          0          0       1361   cmsis_nvic.o
+      3252        726        263         40       7408     107273   main.o
         40         12        228          0          0       1316   startup_lpc407x_8x_177x_8x.o
         48          6          0          0          0       2089   sys.o
       1040         62          0         16          0       5028   system_lpc407x_8x_177x_8x.o
+        32         10          0          8          0      28368   timer.o
 
     ----------------------------------------------------------------------
-      4664        850        524         72       7516     148047   Object Totals
+      4728        862        524         80       7552     150015   Object Totals
          0          0         32          0          0          0   (incl. Generated)
          4          0          1          2          0          0   (incl. Padding)
 
@@ -761,15 +767,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     37520       4168       4664        260      14668     564526   Grand Totals
-     37520       4168       4664        260      14668     564526   ELF Image Totals
-     37520       4168       4664        260          0          0   ROM Totals
+     37584       4180       4664        268      14704     566394   Grand Totals
+     37584       4180       4664        268      14704     566394   ELF Image Totals
+     37584       4180       4664        268          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                42184 (  41.20kB)
-    Total RW  Size (RW Data + ZI Data)             14928 (  14.58kB)
-    Total ROM Size (Code + RO Data + RW Data)      42444 (  41.45kB)
+    Total RO  Size (Code + RO Data)                42248 (  41.26kB)
+    Total RW  Size (RW Data + ZI Data)             14972 (  14.62kB)
+    Total ROM Size (Code + RO Data + RW Data)      42516 (  41.52kB)
 
 ==============================================================================
 

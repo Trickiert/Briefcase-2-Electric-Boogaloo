@@ -1,6 +1,7 @@
 --cpu Cortex-M4.fp
 ".\objects\main.o"
 ".\objects\buffer.o"
+".\objects\timer.o"
 ".\objects\cmsis_nvic.o"
 ".\objects\system_lpc407x_8x_177x_8x.o"
 ".\objects\startup_lpc407x_8x_177x_8x.o"

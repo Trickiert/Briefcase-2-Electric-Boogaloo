@@ -14,6 +14,7 @@
 #include <MMA7455.h>
 #include <display.h>
 #include "buffer.h"
+#include "timer.h"
 
 /*
 *********************************************************************************************************
@@ -115,6 +116,9 @@ static bool buttonPressedAndReleased(buttonId_t button);
 //static void decDelay(void);
 static void barChart(float value);
 
+void sysTickHandler(void);
+static softTimer_t timer[3];
+
 static DigitalOut led1(P1_18);
 static DigitalOut led2(P0_13);
 static DigitalIn buttons[] = {P5_4, P5_0, P5_2, P5_1, P5_3}; // LEFT, RIGHT, UP, DOWN, CENTER
@@ -206,13 +210,15 @@ static void appTaskButtons(void *pdata) {
   /* Start the OS ticker -- must be done in the highest priority task */
   SysTick_Config(SystemCoreClock / OS_TICKS_PER_SEC);
 	
+	
   message_t msg;
 	
 	int a = 0;
-	
+	//int i = 2;
   /* Task main loop */
   while (true) {
     if (buttonPressedAndReleased(JLEFT)) {
+			//d->setCursor(2,44); d->printf("%d", i); i++;
 			flashing[0] = !flashing[0];
 			msg.id = RB_LEFT;
 			safeBufferPut(&msg);
@@ -332,9 +338,15 @@ static void appTaskLCD(void *pdata) {
 	d->setCursor(258, 108);
 	d->printf("-  -  -  -");
 	
-	int i = 0;
+	int i = 0, j = 0;
 	while (true) {
 		safeBufferGet(&msg);
+//		if (msg.id == RB_LEFT || msg.id == RB_RIGHT) {
+//			OSTimeDly(100);
+//			d->setCursor(2,24);
+//			d->printf("%d", j);
+//			j++;
+//		}
 		
 		switch (msg.id) {
 			case RB_LED1 : {
@@ -396,7 +408,8 @@ static void appTaskLCD(void *pdata) {
 				break;
 			}
 			case RB_UP : {
-        if (!armed) { 
+				OSTimeDly(100);
+				if (!armed) { 
 					if (!locked) {
 						locked = 1;
 						d->setCursor(240, 60);
@@ -425,6 +438,7 @@ static void appTaskLCD(void *pdata) {
 				break;
 			}
 			case RB_DOWN : {
+				OSTimeDly(100);
         if (locked && !armed) {
 					locked = 0;
 					d->setCursor(240, 60);
@@ -443,6 +457,7 @@ static void appTaskLCD(void *pdata) {
 				break;
 			}
 			case RB_LEFT : {
+				OSTimeDly(100);
 				if (!armed)
 				{
 					if (locked) {
@@ -462,6 +477,7 @@ static void appTaskLCD(void *pdata) {
 				break;
 			}
 			case RB_RIGHT : {
+				OSTimeDly(100);
         if (armed) {
 					if (codePointer == 3) {
 						codePointer = 0;
@@ -473,6 +489,7 @@ static void appTaskLCD(void *pdata) {
 				break;
 			}
 			case RB_CENTER : {
+				OSTimeDly(100);
 				if (armed) {
 					if ((correctCode[0] == codeNum[0]) && (correctCode[1] == codeNum[1]) && (correctCode[2] == codeNum[2]) && (correctCode[3] == codeNum[3])) {
 						d->setCursor(250,250);	
