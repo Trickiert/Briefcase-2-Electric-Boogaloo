@@ -154,7 +154,13 @@ int main() {
   /* Initialise the OS */
   OSInit();
 	
+//Buffer Init
+	void safeBufferInit(void);
+	
+//Soft Timer Creation
+//softTimerInit(&timer[TIMER_TASK], 1, sysTickHandler);
 
+	
   /* Create the tasks */
   OSTaskCreate(appTaskButtons,                               
                (void *)0,
