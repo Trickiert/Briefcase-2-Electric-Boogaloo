@@ -14,8 +14,6 @@
 #include <MMA7455.h>
 #include <display.h>
 #include "buffer.h"
-#include "timer.h"
-#include "gpioPin.h"
 
 /*
 *********************************************************************************************************
@@ -26,8 +24,8 @@
 typedef enum {
 	APP_TASK_BUTTONS_PRIO = 4,
 	APP_TASK_ACC_PRIO,
-	APP_TASK_POT_PRIO,
-  APP_TASK_TIMER_PRIO,		
+	APP_TASK_POT_PRIO,	
+	APP_TASK_TIMER_PRIO,
   APP_TASK_LED1_PRIO,
   APP_TASK_LED2_PRIO,	
 	APP_TASK_LCD_PRIO,	
@@ -98,10 +96,6 @@ typedef enum {
 	JCENTER
 } buttonId_t;
 
-typedef enum {
-	TIMER_TASK,
-} taskNames_t;
-
 enum {
 	FLASH_MIN_DELAY     = 1,
 	FLASH_INITIAL_DELAY = 500,
@@ -125,11 +119,10 @@ static DigitalOut led1(P1_18);
 static DigitalOut led2(P0_13);
 static DigitalIn buttons[] = {P5_4, P5_0, P5_2, P5_1, P5_3}; // LEFT, RIGHT, UP, DOWN, CENTER
 MMA7455 acc(P0_27, P0_28);
-bool accInit(MMA7455& acc); //prototype of init routine
 int32_t accVal[3];
 static AnalogIn potentiometer(P0_23);
 static Display *d = Display::theDisplay();
-static softTimer_t timer[1];
+bool accInit(MMA7455& acc); //prototype of init routine
 
 static bool flashing[2] = {false, false};
 static int32_t flashingDelay[2] = {FLASH_INITIAL_DELAY, FLASH_INITIAL_DELAY};
@@ -150,15 +143,6 @@ int main() {
 
   /* Initialise the OS */
   OSInit();      
-	
-	/* Initialise the Accelerometer */
-	if (accInit(acc)) {
-			d->setCursor(4,76);
-			d->printf("Accelerometer initialised");
-		} else {
-			d->setCursor(4,76);
-			d->printf("Could not initialise accelerometer");
-		}
 
   /* Create the tasks */
   OSTaskCreate(appTaskButtons,                               
@@ -196,7 +180,14 @@ int main() {
                (OS_STK *)&appTaskLCDStk[APP_TASK_LCD_STK_SIZE - 1],
                APP_TASK_LCD_PRIO);
 							 
-							 
+	/* Initialise the Accelerometer */
+	if (accInit(acc)) {
+			d->setCursor(4,76);
+			d->printf("Accelerometer initialised");
+		} else {
+			d->setCursor(4,76);
+			d->printf("Could not initialise accelerometer");
+		}
   
   /* Start the OS */
   OSStart();                                                  
@@ -216,9 +207,6 @@ static void appTaskButtons(void *pdata) {
   SysTick_Config(SystemCoreClock / OS_TICKS_PER_SEC);
 	
   message_t msg;
-	taskNames_t t;
-	
-	//softTimerInit(&timer[TIMER_TASK], 1, appTaskTimer);
 	
 	int a = 0;
 	
@@ -240,7 +228,6 @@ static void appTaskButtons(void *pdata) {
 			a = a + 1;
 			d->setCursor(2, 230);
 			d->printf("times called in buttonP&R: %i",a);
-			//OSTimeDlyHMSM(0,0,0,999);
 		}
 		else if (buttonPressedAndReleased(JDOWN)) {
 			msg.id = RB_DOWN;
@@ -255,8 +242,7 @@ static void appTaskButtons(void *pdata) {
 }
 
 static void appTaskAcc(void *pdata) {
-	
-			message_t msg;
+		message_t msg;
 	
 		while (true) {
 			acc.read(accVal[0], accVal[1], accVal[2]);
@@ -286,9 +272,11 @@ static void appTaskPot(void *pdata) {
 
 static void appTaskTimer(void *pdata) {
 	message_t msg;
-	while (true) {
+	
+  while (true) {
 		msg.id = RB_TIMER;
-	}
+    OSTimeDlyHMSM(0,0,1,0);
+  }
 }
 
 static void appTaskLED1(void *pdata) {
@@ -315,8 +303,7 @@ static void appTaskLCD(void *pdata) {
 	//temp variables while struct isnt working, change to declaration when struct works
 	int locked = 0;
 	int armed = 0;
-	float timerVal = 0;
-	float timeDisplay = 0;
+	float tempPot = 0.0;
 	int codePointer = 0;
 	int codeNum[4] = {0,0,0,0};
 	int codeNumX[4] = {258,276,294,312};
@@ -362,20 +349,18 @@ static void appTaskLCD(void *pdata) {
 			}
 			case RB_POT : {
 				if (!armed) {
-					float tempPot = msg.fdata[0];
+					tempPot = msg.fdata[0];
 					tempPot = 100*(tempPot * 1.2F);
 					
 					d->setCursor(180, 38);				
 					d->printf("INTERVAL  : %3.0f\n", tempPot);	
 					barChart(msg.fdata[0]);		
-					timerVal = tempPot;
 				}
 				break;
 			}
 			case RB_TIMER : {
-				timerVal = timerVal - 1;
-				if (timerVal == 0){
-					//alarm go
+				if (armed) {
+					
 				}
 				break;
 			}
@@ -503,7 +488,6 @@ static void appTaskLCD(void *pdata) {
 				break;
 			}
 		}
-		//OSTimeDlyHMSM(0,0,0,1000);
 	}
 }
 
