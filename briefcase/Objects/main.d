@@ -104,4 +104,3 @@
 .\objects\main.o: ..\ebb\EALib\GFXFb.h
 .\objects\main.o: ..\ebb\EALib\Adafruit_GFX.h
 .\objects\main.o: src\buffer.h
-.\objects\main.o: src\timer.h

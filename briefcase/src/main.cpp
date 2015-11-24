@@ -14,7 +14,7 @@
 #include <MMA7455.h>
 #include <display.h>
 #include "buffer.h"
-#include "timer.h"
+
 
 /*
 *********************************************************************************************************
@@ -64,7 +64,7 @@ static OS_STK appTaskLCDStk[APP_TASK_LCD_STK_SIZE];
 static void appTaskButtons(void *pdata);
 static void appTaskAcc(void *pdata);
 static void appTaskPot(void *pdata);
-static void appTaskTimer(void *pdata);
+//static void appTaskTimer(void *pdata);
 static void appTaskLED1(void *pdata);
 static void appTaskLED2(void *pdata);
 static void appTaskLCD(void *pdata);
@@ -97,11 +97,6 @@ typedef enum {
 	JCENTER
 } buttonId_t;
 
-//SysTick Timer
-typedef enum {
-	TIMER_TASK,POT_TIMER
-} taskNames_t;
-
 
 enum {
 	FLASH_MIN_DELAY     = 1,
@@ -122,8 +117,7 @@ static bool buttonPressedAndReleased(buttonId_t button);
 //static void decDelay(void);
 static void barChart(float value);
 
-void sysTickHandler(void);
-static softTimer_t timer[3];
+Timeout timeout;
 
 static DigitalOut led1(P1_18);
 static DigitalOut led2(P0_13);
@@ -134,8 +128,16 @@ static AnalogIn potentiometer(P0_23);
 static Display *d = Display::theDisplay();
 bool accInit(MMA7455& acc); //prototype of init routine
 
+Ticker timer;
+
 static bool flashing[2] = {false, false};
 static int32_t flashingDelay[2] = {FLASH_INITIAL_DELAY, FLASH_INITIAL_DELAY};
+
+int on = 1;
+ 
+ void attimeout() {
+     on = 0;
+ }
 
 /*
 *********************************************************************************************************
@@ -144,7 +146,7 @@ static int32_t flashingDelay[2] = {FLASH_INITIAL_DELAY, FLASH_INITIAL_DELAY};
 */
 
 int main() {
-
+	
 	/* Initialise the display */	
 	d->fillScreen(WHITE);
 	d->setTextColor(BLACK, WHITE);
@@ -157,9 +159,6 @@ int main() {
 //Buffer Init
 	void safeBufferInit(void);
 	
-//Soft Timer Creation
-//softTimerInit(&timer[TIMER_TASK], 1, sysTickHandler);
-
 	
   /* Create the tasks */
   OSTaskCreate(appTaskButtons,                               
@@ -177,10 +176,10 @@ int main() {
                (OS_STK *)&appTaskPotStk[APP_TASK_POT_STK_SIZE - 1],
                APP_TASK_POT_PRIO);
 							 
-	OSTaskCreate(appTaskTimer,                               
+/*	OSTaskCreate(appTaskTimer,                               
                (void *)0,
                (OS_STK *)&appTaskTimerStk[APP_TASK_TIMER_STK_SIZE - 1],
-               APP_TASK_TIMER_PRIO);
+               APP_TASK_TIMER_PRIO);*/
 
 	OSTaskCreate(appTaskLED1,                               
                (void *)0,
@@ -205,10 +204,12 @@ int main() {
 			d->setCursor(4,76);
 			d->printf("Could not initialise accelerometer");
 		}
-  
+		
+		
   /* Start the OS */
   OSStart();                                                  
   
+		
   /* Should never arrive here */ 
   return 0;      
 }
@@ -286,17 +287,21 @@ static void appTaskPot(void *pdata) {
 		msg.fdata[0] = potVal;
 		safeBufferPut(&msg);
     OSTimeDlyHMSM(0,0,0,10);
+		msg.id = RB_TIMER;
+		msg.fdata[0] = potVal;
+		safeBufferPut(&msg);
+    OSTimeDlyHMSM(0,0,0,10);
   }
 }
 
-static void appTaskTimer(void *pdata) {
+/*static void appTaskTimer(void *pdata) {
 	message_t msg;
 	
   while (true) {
 		msg.id = RB_TIMER;
     OSTimeDlyHMSM(0,0,1,0);
   }
-}
+}*/
 
 static void appTaskLED1(void *pdata) {
   while (true) {
@@ -322,6 +327,7 @@ static void appTaskLCD(void *pdata) {
 	//temp variables while struct isnt working, change to declaration when struct works
 	int locked = 0;
 	int armed = 0;
+	int moved = 0;
 	float tempPot = 0.0;
 	int codePointer = 0;
 	int codeNum[4] = {0,0,0,0};
@@ -385,6 +391,16 @@ static void appTaskLCD(void *pdata) {
 			}
 			case RB_TIMER : {
 				if (armed) {
+					if(moved) {
+						timeout.attach(&attimeout, 5);
+						while(on) {
+							d->setCursor(3,26);
+							d->printf("hi");
+							wait(0.2);
+						}
+					}
+				}
+				else if (!armed) {
 					
 				}
 				break;
@@ -396,24 +412,20 @@ static void appTaskLCD(void *pdata) {
 				
 				if (armed) {
 					if((msg.fdata[0] > (accVal0 - 5)) && (msg.fdata[0] < (accVal0 + 5))) {
-						d->setCursor(2,2);
-						d->printf("No Change");
+						moved = 0;
 					}
 					else if((msg.fdata[1] > (accVal1 - 5)) && (msg.fdata[1] < (accVal1 + 5))) {
-						d->setCursor(2,2);
-						d->printf("No Change");
+						moved = 0;
 					}
 					else if((msg.fdata[2] > (accVal2 - 5)) && (msg.fdata[2] < (accVal2 + 5))) {
-						d->setCursor(2,2);
-						d->printf("No Change");
+						moved = 0;
 					}
 					else {
 						accVal0 = msg.fdata[0];
 						accVal1 = msg.fdata[1];
 						accVal2 = msg.fdata[2];
 						
-						d->setCursor(2,2);
-						d->printf("BIG Change!");
+						moved = 1;
 					}				
 					d->setCursor(4, 150);
 					d->printf("Acc = (%05d, %05d, %05d)", accVal[0], accVal[1], accVal[2]);
@@ -561,19 +573,6 @@ bool accInit(MMA7455& acc) {
   return result;
 }
 
-/*
- * Handler for the SysTick interrupt
- * Update the soft timers for the Pot and Timer Count
- */
-void sysTickHandler(void) {
-	taskNames_t t;
-   
-	for (t = TIMER_TASK; t < POT_TIMER;) {
-		if (timer[t].count > 0) {
-		  timer[t].count -= 1;
-		}
-	}
-}
 
 /*void incDelay(void) {
 	if (flashingDelay[0] + FLASH_DELAY_STEP > FLASH_MAX_DELAY) {
