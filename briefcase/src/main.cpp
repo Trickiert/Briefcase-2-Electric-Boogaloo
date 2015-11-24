@@ -15,7 +15,6 @@
 #include <display.h>
 #include "buffer.h"
 
-
 /*
 *********************************************************************************************************
 *                                            APPLICATION TASK PRIORITIES
@@ -26,11 +25,10 @@ typedef enum {
 	APP_TASK_BUTTONS_PRIO = 4,
 	APP_TASK_ACC_PRIO,
 	APP_TASK_POT_PRIO,	
-	APP_TASK_TIMER_PRIO,
+	APP_TASK_TIMER_PRIO,	
   APP_TASK_LED1_PRIO,
   APP_TASK_LED2_PRIO,	
-	APP_TASK_LCD_PRIO,	
-	
+	APP_TASK_LCD_PRIO
 } taskPriorities_t;
 
 /*
@@ -64,7 +62,7 @@ static OS_STK appTaskLCDStk[APP_TASK_LCD_STK_SIZE];
 static void appTaskButtons(void *pdata);
 static void appTaskAcc(void *pdata);
 static void appTaskPot(void *pdata);
-//static void appTaskTimer(void *pdata);
+static void appTaskTimer(void *pdata);
 static void appTaskLED1(void *pdata);
 static void appTaskLED2(void *pdata);
 static void appTaskLCD(void *pdata);
@@ -97,6 +95,11 @@ typedef enum {
 	JCENTER
 } buttonId_t;
 
+//SysTick Timer
+typedef enum {
+	TIMER_TASK,POT_TIMER
+} taskNames_t;
+
 
 enum {
 	FLASH_MIN_DELAY     = 1,
@@ -117,7 +120,7 @@ static bool buttonPressedAndReleased(buttonId_t button);
 //static void decDelay(void);
 static void barChart(float value);
 
-Timeout timeout;
+void sysTickHandler(void);
 
 static DigitalOut led1(P1_18);
 static DigitalOut led2(P0_13);
@@ -128,16 +131,8 @@ static AnalogIn potentiometer(P0_23);
 static Display *d = Display::theDisplay();
 bool accInit(MMA7455& acc); //prototype of init routine
 
-Ticker timer;
-
 static bool flashing[2] = {false, false};
 static int32_t flashingDelay[2] = {FLASH_INITIAL_DELAY, FLASH_INITIAL_DELAY};
-
-int on = 1;
- 
- void attimeout() {
-     on = 0;
- }
 
 /*
 *********************************************************************************************************
@@ -147,6 +142,7 @@ int on = 1;
 
 int main() {
 	
+
 	/* Initialise the display */	
 	d->fillScreen(WHITE);
 	d->setTextColor(BLACK, WHITE);
@@ -159,6 +155,9 @@ int main() {
 //Buffer Init
 	void safeBufferInit(void);
 	
+//Soft Timer Creation
+//softTimerInit(&timer[TIMER_TASK], 1, sysTickHandler);
+
 	
   /* Create the tasks */
   OSTaskCreate(appTaskButtons,                               
@@ -176,10 +175,10 @@ int main() {
                (OS_STK *)&appTaskPotStk[APP_TASK_POT_STK_SIZE - 1],
                APP_TASK_POT_PRIO);
 							 
-/*	OSTaskCreate(appTaskTimer,                               
+	OSTaskCreate(appTaskTimer,                               
                (void *)0,
                (OS_STK *)&appTaskTimerStk[APP_TASK_TIMER_STK_SIZE - 1],
-               APP_TASK_TIMER_PRIO);*/
+               APP_TASK_TIMER_PRIO);
 
 	OSTaskCreate(appTaskLED1,                               
                (void *)0,
@@ -204,12 +203,10 @@ int main() {
 			d->setCursor(4,76);
 			d->printf("Could not initialise accelerometer");
 		}
-		
-		
+  
   /* Start the OS */
   OSStart();                                                  
   
-		
   /* Should never arrive here */ 
   return 0;      
 }
@@ -287,21 +284,24 @@ static void appTaskPot(void *pdata) {
 		msg.fdata[0] = potVal;
 		safeBufferPut(&msg);
     OSTimeDlyHMSM(0,0,0,10);
-		msg.id = RB_TIMER;
-		msg.fdata[0] = potVal;
-		safeBufferPut(&msg);
-    OSTimeDlyHMSM(0,0,0,10);
   }
 }
 
-/*static void appTaskTimer(void *pdata) {
+static void appTaskTimer(void *pdata) {
+	//int counter = 0;
 	message_t msg;
-	
-  while (true) {
-		msg.id = RB_TIMER;
-    OSTimeDlyHMSM(0,0,1,0);
-  }
-}*/
+	//d->setCursor(3,12);
+	//d->printf("cusrsor num before: %i", counter);
+	while (true) {	
+		//if (counter < 120){			
+			//counter = counter + 1 ;
+			msg.id = RB_TIMER;
+			//msg.data[0] = counter;
+			safeBufferPut(&msg);
+		//}
+		OSTimeDlyHMSM(0,0,1,0);
+	}
+}
 
 static void appTaskLED1(void *pdata) {
   while (true) {
@@ -327,8 +327,8 @@ static void appTaskLCD(void *pdata) {
 	//temp variables while struct isnt working, change to declaration when struct works
 	int locked = 0;
 	int armed = 0;
-	int moved = 0;
 	float tempPot = 0.0;
+	float timerVal = 0.0;
 	int codePointer = 0;
 	int codeNum[4] = {0,0,0,0};
 	int codeNumX[4] = {258,276,294,312};
@@ -385,24 +385,22 @@ static void appTaskLCD(void *pdata) {
 					
 					d->setCursor(180, 38);				
 					d->printf("INTERVAL  : %3.0f\n", tempPot);	
-					barChart(msg.fdata[0]);		
+					barChart(msg.fdata[0]);
+				}
+				if (armed){
+					d->setCursor(3, 38);	
+					d->printf("INTERVAL  : %3.0f\n", timerVal);
 				}
 				break;
 			}
 			case RB_TIMER : {
-				if (armed) {
-					if(moved) {
-						timeout.attach(&attimeout, 5);
-						while(on) {
-							d->setCursor(3,26);
-							d->printf("hi");
-							wait(0.2);
-						}
-					}
+				if(armed){
+					d->setCursor(240, 50);
+					timerVal = timerVal - 1;
+					d->printf(":  %3.0f\n", timerVal);
 				}
-				else if (!armed) {
-					
-				}
+					//d->printf("%i", msg.data[0]);
+				
 				break;
 			}
 			case RB_ACC : {
@@ -412,20 +410,24 @@ static void appTaskLCD(void *pdata) {
 				
 				if (armed) {
 					if((msg.fdata[0] > (accVal0 - 5)) && (msg.fdata[0] < (accVal0 + 5))) {
-						moved = 0;
+						d->setCursor(2,2);
+						d->printf("No Change");
 					}
 					else if((msg.fdata[1] > (accVal1 - 5)) && (msg.fdata[1] < (accVal1 + 5))) {
-						moved = 0;
+						d->setCursor(2,2);
+						d->printf("No Change");
 					}
 					else if((msg.fdata[2] > (accVal2 - 5)) && (msg.fdata[2] < (accVal2 + 5))) {
-						moved = 0;
+						d->setCursor(2,2);
+						d->printf("No Change");
 					}
 					else {
 						accVal0 = msg.fdata[0];
 						accVal1 = msg.fdata[1];
 						accVal2 = msg.fdata[2];
 						
-						moved = 1;
+						d->setCursor(2,2);
+						d->printf("BIG Change!");
 					}				
 					d->setCursor(4, 150);
 					d->printf("Acc = (%05d, %05d, %05d)", accVal[0], accVal[1], accVal[2]);
