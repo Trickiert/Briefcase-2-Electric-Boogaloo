@@ -437,9 +437,9 @@
               <FilePath>.\src\timer.h</FilePath>
             </File>
             <File>
-              <FileName>gpioPin.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\src\gpioPin.h</FilePath>
+              <FileName>timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\src\timer.c</FilePath>
             </File>
           </Files>
         </Group>
