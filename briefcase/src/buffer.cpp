@@ -30,9 +30,9 @@ void safeBufferPut(message_t const * const msg) {
   uint8_t osStatus;
 
   OSSemPend(freeSlot, 0, &osStatus);
-  OSMutexPend(bufMutex, 0, &osStatus);
+  OSSemPend(bufMutex, 0, &osStatus);
   putBuffer(msg);
-  osStatus = OSMutexPost(bufMutex);
+  osStatus = OSSemPost(bufMutex);
   osStatus = OSSemPost(fullSlot);
 }
 
@@ -41,9 +41,9 @@ void safeBufferGet(message_t * const msg) {
   uint8_t osStatus;
   
   OSSemPend(fullSlot, 0, &osStatus);
-  OSMutexPend(bufMutex, 0, &osStatus);
+  OSSemPend(bufMutex, 0, &osStatus);
   getBuffer(msg);
-  osStatus = OSMutexPost(bufMutex);
+  osStatus = OSSemPost(bufMutex);
   osStatus = OSSemPost(freeSlot);
 }
 

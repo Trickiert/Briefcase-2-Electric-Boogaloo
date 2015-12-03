@@ -244,7 +244,7 @@ static void appTaskButtons(void *pdata) {
   SysTick_Config(SystemCoreClock / OS_TICKS_PER_SEC);	
 	
   message_t msg;
-	//bcStatus_t bc;
+	bcStatus_t bc;
 	
 	//initializing sturct variables
 	bc.locked = 0;
@@ -389,7 +389,7 @@ static void appTaskAcc(void *pdata) {
 static void appTaskPot(void *pdata) {
 	float potVal;
 	message_t msg;
-	//bcStatus_t bc;
+	bcStatus_t bc;
   while (true) {
 		if(!bc.armed) {
 			potVal = 1.00F - potentiometer.read();
