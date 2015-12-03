@@ -334,6 +334,7 @@ static void appTaskButtons(void *pdata) {
 					msg.id = RB_CENTER;
 					armed = 0;
 					locked = 0;
+					moved = 0;
 					codeNum[0] = 0;
 					codeNum[1] = 0;
 					codeNum[2] = 0;
@@ -371,6 +372,9 @@ static void appTaskPot(void *pdata) {
 			msg.fdata[0] = potVal;
 			potVal = potVal * 1.2F;
 			potVal = potVal	* 100;
+			if (potVal < 10) {
+				potVal = 10;
+			}
 			msg.fdata[1] = potVal;
 			safeBufferPut(&msg);
 		}
@@ -383,11 +387,17 @@ static void appTaskTimer(void *pdata) {
 	while (true) {
 			if (armed) {
 				if (moved) {
-					msg.id = RB_TIMER;
-					d->setCursor (3,33);
-					potVal = potVal - 1;		
-					d->printf("%3.0f", (potVal));
-					safeBufferPut(&msg);
+					if (potVal == 0) {
+						msg.id = RB_TIMER;
+						msg.data[0] = 0;
+						safeBufferPut (&msg);
+					}
+					else if (potVal > 0) {
+						msg.id = RB_TIMER;
+						msg.data[0] = 1;
+						potVal = potVal - 1;		
+						safeBufferPut(&msg);
+					}
 				}
 		}
 		OSTimeDlyHMSM(0,0,1,0);
@@ -456,13 +466,17 @@ static void appTaskLCD(void *pdata) {
 					barChart(msg.fdata[0]);				
 				break;
 			}
-			case RB_TIMER : {
-				if(armed){
+			case RB_TIMER : {				
+				if (msg.data[0] == 0) {
+					d->setCursor(150, 130);
+					d->printf("ENTER CODE TO UNLOCK AND DISARM DEVICE!");
+					flashing[0] = 1;
+					flashing[1] = 1;
+				}
+				else if (msg.data[0] == 1) {
 					d->setCursor(240, 49);
 					d->printf(": %3.0f\n", potVal);
-				}
-					//d->printf("%i", msg.data[0]);
-				
+				}				
 				break;
 			}
 			case RB_ACC : {
@@ -489,12 +503,11 @@ static void appTaskLCD(void *pdata) {
 						accVal2 = msg.fdata[2];
 						
 						d->setCursor(2,2);
-						d->printf("BIG Change!");
+						d->setCursor(240, 72);
+						d->printf(":  MOVED     ");
 						
 						moved = 1;
-					}				
-					d->setCursor(4, 150);
-					d->printf("Acc = (%05d, %05d, %05d)", accVal[0], accVal[1], accVal[2]);
+					}
 				}
 				break;
 			}
@@ -579,6 +592,13 @@ static void appTaskLCD(void *pdata) {
 				d->printf(":  UNARMED    ");
 				d->setCursor(240, 60);
 				d->printf(":  UNLOCKED   ");			
+				d->setCursor(240, 72);
+				d->printf(":  STATIONARY");
+				d->setCursor(150, 130);
+				d->printf("                                                 ");
+				
+				flashing[0] = 0;
+				flashing[1] = 0;
 				
 				d->setCursor(258, 96);
 				d->printf("0");
