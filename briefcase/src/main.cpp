@@ -116,21 +116,6 @@ struct caseStatus {
 	int codeNum[4];
 };
 
-
-/* Struct including all the variables for the Breifcase */
-
-typedef struct bcStatus {
-	int locked;
-	int armed;
-	float tempPot;
-	float timerVal;
-	int codePointer;
-	int codeNum[4];
-	int codeNumX[4];
-	int correctCode[4];
-	char printMsg[64];
-} bcStatus_t;
-
 static bool buttonPressedAndReleased(buttonId_t button);
 static void barChart(float value);
 
@@ -163,8 +148,29 @@ static int32_t flashingDelay[2] = {FLASH_INITIAL_DELAY, FLASH_INITIAL_DELAY};
 *********************************************************************************************************
 */
 
+	int locked = 0;
+	int armed = 0;
+	int moved = 0;
+	float potVal = 0.0;
+	float timerVal = 0.0;
+	int codePointer = 0;
+	int codeNum[4] = {0,0,0,0};
+	int codeNumX[4] = {258,276,294,312};
+	int correctCode[4] = {0,1,2,3};
+	char printMsg[64];
+
 int main() {
 	
+	/* Initialise the Accelerometer */
+	if (accInit(acc)) {
+			d->setCursor(4,76);
+			d->printf("Accelerometer initialised");
+			//OSTimeDlyHMSM(0,0,10,0);
+		} else {
+			d->setCursor(4,76);
+			d->printf("Could not initialise accelerometer");
+			//OSTimeDlyHMSM(0,0,10,0);
+		}	
 
 	/* Initialise the display */	
 	d->fillScreen(WHITE);
@@ -214,18 +220,7 @@ int main() {
                (void *)0,
                (OS_STK *)&appTaskLCDStk[APP_TASK_LCD_STK_SIZE - 1],
                APP_TASK_LCD_PRIO);
-							 
-	/* Initialise the Accelerometer */
-	if (accInit(acc)) {
-			d->setCursor(4,76);
-			d->printf("Accelerometer initialised");
-		} else {
-			d->setCursor(4,76);
-			d->printf("Could not initialise accelerometer");
-		}
-		
-
-  
+							   
   /* Start the OS */
   OSStart();                                                  
   
@@ -239,130 +234,111 @@ int main() {
 *********************************************************************************************************
 */
 
+
 static void appTaskButtons(void *pdata) {
   /* Start the OS ticker -- must be done in the highest priority task */
   SysTick_Config(SystemCoreClock / OS_TICKS_PER_SEC);	
 	
   message_t msg;
-	bcStatus_t bc;
-	
-	//initializing sturct variables
-	bc.locked = 0;
-	bc.armed = 0;
-	bc.tempPot = 0.0;
-	bc.timerVal = 120.0;
-	bc.codePointer = 0;
-	
-	bc.codeNum[0] = 0;
-	bc.codeNum[1] = 0;
-	bc.codeNum[2] = 0;
-	bc.codeNum[3] = 0;
-	
-	bc.correctCode[0] = 0;
-	bc.correctCode[1] = 1;
-	bc.correctCode[2] = 2;
-	bc.correctCode[3] = 3;
-	
-	updateCase (&bc);
+
 	//********************************
 	
 	//int i = 2;
   /* Task main loop */
   while (true) {
-    if (buttonPressedAndReleased(JLEFT)) {
-			
-			if (!bc.armed) {
-				if (bc.locked) {
+    if (buttonPressedAndReleased(JLEFT)) {			
+			if (!armed) {
+				if (locked) {
 					msg.id = RB_LEFT;
-					bc.armed = 1;
+					armed = 1;
 					safeBufferPut(&msg);
 				}
 			}
-			else if (bc.armed) {
+			else if (armed) {
 				msg.id = RB_LEFT;
-				if (bc.codePointer > 0) {
-					bc.codePointer = bc.codePointer - 1;
+				if (codePointer > 0) {
+					codePointer = codePointer - 1;
 				}
-				else if (bc.codePointer == 0) {
-					bc.codePointer = 3;
+				else if (codePointer == 0) {
+					codePointer = 3;
 				}
 				safeBufferPut(&msg);
 			}
 		}
 		else if (buttonPressedAndReleased(JRIGHT)) {
-			if (bc.armed) {
+			if (armed) {
 				msg.id = RB_RIGHT;
-				if (bc.codePointer < 3) {
-					bc.codePointer = bc.codePointer + 1;
+				if (codePointer < 3) {
+					codePointer = codePointer + 1;
 				}
-				else if (bc.codePointer == 3) {
-					bc.codePointer = 0;
+				else if (codePointer == 3) {
+					codePointer = 0;
 				}
 				safeBufferPut(&msg);
 			}
 		}
 		else if (buttonPressedAndReleased(JUP)) {
 			
-			if (!bc.armed) { 
-					if (!bc.locked) {
+			if (!armed) { 
+					if (!locked) {
 						msg.id = RB_UP;
-						bc.locked = !bc.locked;						
+						locked = 1;						
 						msg.data[0] = 0;
 						safeBufferPut(&msg);
 					}
 				}
-			else if (bc.armed) {
+			else if (armed) {
 				msg.id = RB_UP;				
 				msg.data[0] = 1;		
-				if (bc.codeNum[bc.codePointer] == 9) {
-					bc.codeNum[bc.codePointer] = 0;
+				if (codeNum[codePointer] == 9) {
+					codeNum[codePointer] = 0;
 				}
 				else {
-					bc.codeNum[bc.codePointer] = (bc.codeNum[bc.codePointer] + 1);
+					codeNum[codePointer] = (codeNum[codePointer] + 1);
 				}	
 				
-				msg.data[1] = bc.codePointer;
-				msg.data[2] = bc.codeNum[bc.codePointer];
+				msg.data[1] = codePointer;
+				msg.data[2] = codeNum[codePointer];
 				
 				safeBufferPut(&msg);
 			}
 		}
 		else if (buttonPressedAndReleased(JDOWN)) {			
-			if (!bc.armed) {
-				if(bc.locked) {
+			if (!armed) {
+				if(locked) {
 					msg.id = RB_DOWN;	
-					bc.locked = !bc.locked;	
+					locked = !locked;	
 					msg.data[0] = 0;
 					safeBufferPut(&msg);
 				}
 			}
-			else if (bc.armed) {
+			else if (armed) {
 				msg.id = RB_DOWN;				
 				msg.data[0] = 1;		
-				if (bc.codeNum[bc.codePointer] == 0) {
-					bc.codeNum[bc.codePointer] = 9;
+				if (codeNum[codePointer] == 0) {
+					codeNum[codePointer] = 9;
 				}
 				else {
-					bc.codeNum[bc.codePointer] = (bc.codeNum[bc.codePointer] - 1);
+					codeNum[codePointer] = (codeNum[codePointer] - 1);
 				}	
 				
-				msg.data[1] = bc.codePointer;
-				msg.data[2] = bc.codeNum[bc.codePointer];
+				msg.data[1] = codePointer;
+				msg.data[2] = codeNum[codePointer];
 				
 				safeBufferPut(&msg);
 			}
 		}
 		else if (buttonPressedAndReleased(JCENTER)) {
-			if (bc.armed) {
-				if ((bc.correctCode[0] == bc.codeNum[0]) && (bc.correctCode[1] == bc.codeNum[1]) && (bc.correctCode[2] == bc.codeNum[2]) && (bc.correctCode[3] == bc.codeNum[3])) {
+			if (armed) {
+				if ((correctCode[0] == codeNum[0]) && (correctCode[1] == codeNum[1]) && (correctCode[2] == codeNum[2]) && (correctCode[3] == codeNum[3])) {
 					msg.id = RB_CENTER;
-					bc.armed = 0;
-					bc.locked = 0;
-					bc.codeNum[0] = 0;
-					bc.codeNum[1] = 0;
-					bc.codeNum[2] = 0;
-					bc.codeNum[3] = 0;
-					bc.codePointer = 0;
+					armed = 0;
+					locked = 0;
+					codeNum[0] = 0;
+					codeNum[1] = 0;
+					codeNum[2] = 0;
+					codeNum[3] = 0;
+					codePointer = 0;
 					safeBufferPut(&msg);
 				}
 			}
@@ -387,11 +363,9 @@ static void appTaskAcc(void *pdata) {
 }
 
 static void appTaskPot(void *pdata) {
-	float potVal;
 	message_t msg;
-	bcStatus_t bc;
   while (true) {
-		if(!bc.armed) {
+		if(!armed) {
 			potVal = 1.00F - potentiometer.read();
 			msg.id = RB_POT;
 			msg.fdata[0] = potVal;
@@ -399,20 +373,23 @@ static void appTaskPot(void *pdata) {
 			potVal = potVal	* 100;
 			msg.fdata[1] = potVal;
 			safeBufferPut(&msg);
-			OSTimeDlyHMSM(0,0,0,10);
 		}
+		OSTimeDlyHMSM(0,0,0,10);		
   }
 }
 
 static void appTaskTimer(void *pdata) {
 	message_t msg;
-	bcStatus_t bc;
-	while (true) {	
-			msg.id = RB_TIMER;
-			d->setCursor (3,33);
-			bc.timerVal = bc.timerVal - 1;		
-			d->printf("%3.0f", (bc.timerVal));
-			safeBufferPut(&msg);
+	while (true) {
+			if (armed) {
+				if (moved) {
+					msg.id = RB_TIMER;
+					d->setCursor (3,33);
+					potVal = potVal - 1;		
+					d->printf("%3.0f", (potVal));
+					safeBufferPut(&msg);
+				}
+		}
 		OSTimeDlyHMSM(0,0,1,0);
 	}
 }
@@ -437,17 +414,6 @@ static void appTaskLED2(void *pdata) {
 }
 
 static void appTaskLCD(void *pdata) {
-	
-	//temp variables while struct isnt working, change to declaration when struct works
-	int armed = 0;
-//	float tempPot = 0.0;
-	float timerVal = 0.0;
-//	int codePointer = 0;
-//	int codeNum[4] = {0,0,0,0};
-//	int codeNumX[4] = {258,276,294,312};
-//	int correctCode[4] = {0,1,2,3};
-	//***************
-	
 	message_t msg;
 	
 	/* Initialise the display */	
@@ -459,7 +425,7 @@ static void appTaskLCD(void *pdata) {
 	d->drawRect(2, 14, 476, 256, BLACK);
 	d->setCursor(180, 24);
 	d->printf("ALARM     :  PENDING");
-	d->setCursor(180, 48);
+	d->setCursor(180, 49);
 	d->printf("TIME      :  0");
 	d->setCursor(180, 60);
 	d->printf("CASE      :  UNLOCKED");
@@ -472,12 +438,6 @@ static void appTaskLCD(void *pdata) {
 	
 	while (true) {
 		safeBufferGet(&msg);
-//		if (msg.id == RB_LEFT || msg.id == RB_RIGHT) {
-//			OSTimeDly(100);
-//			d->setCursor(2,24);
-//			d->printf("%d", j);
-//			j++;
-//		}
 		
 		switch (msg.id) {
 			case RB_LED1 : {
@@ -498,9 +458,8 @@ static void appTaskLCD(void *pdata) {
 			}
 			case RB_TIMER : {
 				if(armed){
-					d->setCursor(240, 50);
-					timerVal = timerVal - 1;
-					d->printf(":  %3.0f\n", timerVal);
+					d->setCursor(240, 49);
+					d->printf(": %3.0f\n", potVal);
 				}
 					//d->printf("%i", msg.data[0]);
 				
@@ -512,15 +471,15 @@ static void appTaskLCD(void *pdata) {
 				float accVal2;
 				
 				if (armed) {
-					if((msg.fdata[0] > (accVal0 - 5)) && (msg.fdata[0] < (accVal0 + 5))) {
+					if((msg.fdata[0] > (accVal0 - 7)) && (msg.fdata[0] < (accVal0 + 7))) {
 						d->setCursor(2,2);
 						d->printf("No Change");
 					}
-					else if((msg.fdata[1] > (accVal1 - 5)) && (msg.fdata[1] < (accVal1 + 5))) {
+					else if((msg.fdata[1] > (accVal1 - 7)) && (msg.fdata[1] < (accVal1 + 7))) {
 						d->setCursor(2,2);
 						d->printf("No Change");
 					}
-					else if((msg.fdata[2] > (accVal2 - 5)) && (msg.fdata[2] < (accVal2 + 5))) {
+					else if((msg.fdata[2] > (accVal2 - 7)) && (msg.fdata[2] < (accVal2 + 7))) {
 						d->setCursor(2,2);
 						d->printf("No Change");
 					}
@@ -531,6 +490,8 @@ static void appTaskLCD(void *pdata) {
 						
 						d->setCursor(2,2);
 						d->printf("BIG Change!");
+						
+						moved = 1;
 					}				
 					d->setCursor(4, 150);
 					d->printf("Acc = (%05d, %05d, %05d)", accVal[0], accVal[1], accVal[2]);
@@ -705,10 +666,4 @@ static void barChart(float value) {
 	
 	d->fillRect(left, top, width, height, RED);
 	d->fillRect(left + width, top, max - width, height, WHITE);
-}
-
-void updateCase(bcStatus_t *bcStatus) {
-	bcStatus->armed = 0;
-	bcStatus->locked = 0;
-	bcStatus->timerVal = 0;
 }
