@@ -140,7 +140,6 @@ bool accInit(MMA7455& acc); //prototype of init routine
 
 static bool flashing[2] = {false, false};
 static int32_t flashingDelay[2] = {FLASH_INITIAL_DELAY, FLASH_INITIAL_DELAY};
-//bcStatus_t bc;
 
 /*
 *********************************************************************************************************
@@ -148,6 +147,7 @@ static int32_t flashingDelay[2] = {FLASH_INITIAL_DELAY, FLASH_INITIAL_DELAY};
 *********************************************************************************************************
 */
 
+/* Varibles for breifcase functionality */
 	int locked = 0;
 	int armed = 0;
 	int moved = 0;
@@ -165,11 +165,9 @@ int main() {
 	if (accInit(acc)) {
 			d->setCursor(4,76);
 			d->printf("Accelerometer initialised");
-			//OSTimeDlyHMSM(0,0,10,0);
 		} else {
 			d->setCursor(4,76);
 			d->printf("Could not initialise accelerometer");
-			//OSTimeDlyHMSM(0,0,10,0);
 		}	
 
 	/* Initialise the display */	
@@ -238,12 +236,9 @@ int main() {
 static void appTaskButtons(void *pdata) {
   /* Start the OS ticker -- must be done in the highest priority task */
   SysTick_Config(SystemCoreClock / OS_TICKS_PER_SEC);	
-	
   message_t msg;
-
-	//********************************
 	
-	//int i = 2;
+
   /* Task main loop */
   while (true) {
     if (buttonPressedAndReleased(JLEFT)) {			
@@ -251,6 +246,7 @@ static void appTaskButtons(void *pdata) {
 				if (locked) {
 					msg.id = RB_LEFT;
 					armed = 1;
+					msg.data[1] = codePointer;
 					safeBufferPut(&msg);
 				}
 			}
@@ -262,18 +258,20 @@ static void appTaskButtons(void *pdata) {
 				else if (codePointer == 0) {
 					codePointer = 3;
 				}
+				msg.data[1] = codePointer;
 				safeBufferPut(&msg);
 			}
 		}
 		else if (buttonPressedAndReleased(JRIGHT)) {
 			if (armed) {
-				msg.id = RB_RIGHT;
+				msg.id = RB_RIGHT;				
 				if (codePointer < 3) {
 					codePointer = codePointer + 1;
 				}
 				else if (codePointer == 3) {
 					codePointer = 0;
 				}
+				msg.data[1] = codePointer;
 				safeBufferPut(&msg);
 			}
 		}
@@ -436,7 +434,7 @@ static void appTaskLCD(void *pdata) {
 	d->setCursor(180, 24);
 	d->printf("ALARM     :  PENDING");
 	d->setCursor(180, 49);
-	d->printf("TIME      :  0");
+	d->printf("TIME      :  -");
 	d->setCursor(180, 60);
 	d->printf("CASE      :  UNLOCKED");
 	d->setCursor(240, 72);
@@ -577,14 +575,72 @@ static void appTaskLCD(void *pdata) {
 				if (msg.data[0] == 0) {
 						d->setCursor(240, 24);
 						d->printf(":  ARMED    ");
+						d->setCursor(258, 108);
+						d->printf("-         ");
 				}
 				else if (msg.data[0] == 1) {
-					
+					switch (msg.data[1]) {
+						case 0 : {
+							d->setCursor(258, 108);
+							d->printf("-         ");
+						break;
+						}
+						case 1 : {
+							d->setCursor(258, 108);
+							d->printf("   -      ");
+						break;
+						}
+						case 2 : {
+							d->setCursor(258, 108);
+							d->printf("      -   ");
+						break;
+						}
+						case 3 : {
+							d->setCursor(258, 108);
+							d->printf("         -");
+						break;
+						}
+					}
 				}
 				break;
 			}
 			case RB_RIGHT : {
-				
+				if (armed) {
+					switch (msg.data[1]) {
+							case 0 : {
+								d->setCursor(5,25);
+								d->printf("0");
+								
+								d->setCursor(258, 108);
+								d->printf("-         ");
+							break;
+							}
+							case 1 : {
+								d->setCursor(5,25);
+								d->printf("1");
+								
+								d->setCursor(258, 108);
+								d->printf("   -      ");
+							break;
+							}
+							case 2 : {
+								d->setCursor(5,25);
+								d->printf("2");
+								
+								d->setCursor(258, 108);
+								d->printf("      -   ");
+							break;
+							}
+							case 3 : {
+								d->setCursor(5,25);
+								d->printf("3");
+								
+								d->setCursor(258, 108);
+								d->printf("         -");
+							break;
+							}
+						}
+					}
 				break;
 			}
 			case RB_CENTER : {
@@ -657,25 +713,6 @@ bool accInit(MMA7455& acc) {
   // screen->printf("MMA7455 initialised\n");
   return result;
 }
-
-
-/*void incDelay(void) {
-	if (flashingDelay[0] + FLASH_DELAY_STEP > FLASH_MAX_DELAY) {
-		flashingDelay[0] = FLASH_MAX_DELAY;
-	}
-	else {
-		flashingDelay[0] += FLASH_DELAY_STEP;
-	}
-}*/
-
-/*void decDelay(void) {
-	if (flashingDelay[0] - FLASH_DELAY_STEP < FLASH_MIN_DELAY) {
-		flashingDelay[0] = FLASH_MIN_DELAY;
-	}
-	else {
-		flashingDelay[0] -= FLASH_DELAY_STEP;
-	}
-}*/
 
 static void barChart(float value) {
 	uint16_t const max = 100;
