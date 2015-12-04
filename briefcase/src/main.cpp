@@ -485,15 +485,15 @@ static void appTaskLCD(void *pdata) {
 				if (armed) {
 					if((msg.fdata[0] > (accVal0 - 7)) && (msg.fdata[0] < (accVal0 + 7))) {
 						d->setCursor(2,2);
-						d->printf("No Change");
+						
 					}
 					else if((msg.fdata[1] > (accVal1 - 7)) && (msg.fdata[1] < (accVal1 + 7))) {
 						d->setCursor(2,2);
-						d->printf("No Change");
+					
 					}
 					else if((msg.fdata[2] > (accVal2 - 7)) && (msg.fdata[2] < (accVal2 + 7))) {
 						d->setCursor(2,2);
-						d->printf("No Change");
+					
 					}
 					else {
 						accVal0 = msg.fdata[0];
