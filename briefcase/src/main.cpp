@@ -74,7 +74,7 @@ static void appTaskLCD(void *pdata);
 *********************************************************************************************************
 */
 
-
+/* Ringbuffer Enumeration */
 typedef enum {
 	RB_LED1 = 0,
 	RB_LED2,
@@ -88,6 +88,7 @@ typedef enum {
 	RB_CENTER
 } deviceNames_t;
 
+/* Joystick Enumeration */
 typedef enum {
 	JLEFT = 0,
 	JRIGHT,
@@ -96,12 +97,12 @@ typedef enum {
 	JCENTER
 } buttonId_t;
 
-//SysTick Timer
+/* Timer Enumeration */
 typedef enum {
 	TIMER_TASK,POT_TIMER
 } taskNames_t;
 
-
+/* Controls LED Flashing */ 
 enum {
 	FLASH_MIN_DELAY     = 1,
 	FLASH_INITIAL_DELAY = 500,
@@ -109,11 +110,12 @@ enum {
 	FLASH_DELAY_STEP    = 50
 };
 
+/* Varibles relating to the status of the case */
 struct caseStatus {
 	int locked;
 	int armed;
-	int codePointer;
-	int codeNum[4];
+	int codePointer; //Points to a codeNum
+	int codeNum[4]; //An array refering to the code entry. (0,0,0,0)
 };
 
 static bool buttonPressedAndReleased(buttonId_t button);
@@ -131,10 +133,10 @@ void updateCase(struct bcStatus *bcStatus);
 
 static DigitalOut led1(P1_18);
 static DigitalOut led2(P0_13);
-static DigitalIn buttons[] = {P5_4, P5_0, P5_2, P5_1, P5_3}; // LEFT, RIGHT, UP, DOWN, CENTER
-MMA7455 acc(P0_27, P0_28);
+static DigitalIn buttons[] = {P5_4, P5_0, P5_2, P5_1, P5_3}; // LEFT, RIGHT, UP, DOWN, CENTER (Joystick)
+MMA7455 acc(P0_27, P0_28); //Acceleromoter 
 int32_t accVal[3];
-static AnalogIn potentiometer(P0_23);
+static AnalogIn potentiometer(P0_23); 
 static Display *d = Display::theDisplay();
 bool accInit(MMA7455& acc); //prototype of init routine
 
