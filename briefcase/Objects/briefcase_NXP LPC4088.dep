@@ -1,28 +1,28 @@
 Dependencies for Project 'briefcase', Target 'NXP LPC4088': (DO NOT MODIFY !)
-F (.\src\main.cpp)(0x5651D511)(--cpp -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\uCOS-II\Source -I..\uCOS-II\Ports\ARM-Cortex-M4\Generic\ARM -I..\mbed_nxp_lpc408x\api -I..\mbed_nxp_lpc408x\common -I..\mbed_nxp_lpc408x\hal -I..\mbed_nxp_lpc408x\targets\cmsis -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088 -I..\ebb -I..\ebb\EALib -I..\ebb\EALib\FATFileSystem -I..\ebb\EALib\FATFileSystem\ChaN -I..\ebb\I2S -I..\ebb\LM75B -I..\ebb\SDFileSystem-I "C:\Users\Cameron\Documents\GitHub\Briefcase 2 Electric Boogaloo\briefcase\RTE"-I C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="517" -DCORE_M4 -DTARGET_LPC4088 -DTARGET_M4 -DTARGET_CORTEX_M -DTARGET_NXP -DTARGET_LPC408X -DTOOLCHAIN_ARM_STD -DTOOLCHAIN_ARM -D__CORTEX_M4 -DARM_MATH_CM4 -D__FPU_PRESENT="1" -D__MBED__="1" -D__ASSERT_MSG-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+F (.\src\main.cpp)(0x566938B5)(--cpp -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\uCOS-II\Source -I..\uCOS-II\Ports\ARM-Cortex-M4\Generic\ARM -I..\mbed_nxp_lpc408x\api -I..\mbed_nxp_lpc408x\common -I..\mbed_nxp_lpc408x\hal -I..\mbed_nxp_lpc408x\targets\cmsis -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088 -I..\ebb -I..\ebb\EALib -I..\ebb\EALib\FATFileSystem -I..\ebb\EALib\FATFileSystem\ChaN -I..\ebb\I2S -I..\ebb\LM75B -I..\ebb\SDFileSystem-I C:\Users\Cameron\Documents\GitHub\Briefcase-2-Electric-Boogaloo\briefcase\RTE-I C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="517" -DCORE_M4 -DTARGET_LPC4088 -DTARGET_M4 -DTARGET_CORTEX_M -DTARGET_NXP -DTARGET_LPC408X -DTOOLCHAIN_ARM_STD -DTOOLCHAIN_ARM -D__CORTEX_M4 -DARM_MATH_CM4 -D__FPU_PRESENT="1" -D__MBED__="1" -D__ASSERT_MSG-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x55DB8DE6)
-I (..\uCOS-II\Source\ucos_ii.h)(0x564DB70B)
-I (..\uCOS-II\Source\app_cfg.h)(0x564DB70B)
-I (..\uCOS-II\Source\os_cfg.h)(0x564DB70B)
-I (..\uCOS-II\Ports\ARM-Cortex-M4\Generic\ARM\os_cpu.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\api\mbed.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\platform.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\device.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\objects.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\LPC407x_8x_177x_8x.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\targets\cmsis\core_cm4.h)(0x564DB70B)
+I (..\uCOS-II\Source\ucos_ii.h)(0x5653D910)
+I (..\uCOS-II\Source\app_cfg.h)(0x5653D910)
+I (..\uCOS-II\Source\os_cfg.h)(0x5653D910)
+I (..\uCOS-II\Ports\ARM-Cortex-M4\Generic\ARM\os_cpu.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\mbed.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\platform.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\device.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\objects.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\LPC407x_8x_177x_8x.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\core_cm4.h)(0x5653D910)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DB8DF0)
-I (..\mbed_nxp_lpc408x\targets\cmsis\core_cmInstr.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\cmsis\core_cmFunc.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\cmsis\core_cm4_simd.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\system_LPC407x_8x_177x_8x.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis_nvic.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\PortNames.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088\PeripheralNames.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088\PinNames.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\gpio_object.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\api\mbed_assert.h)(0x564DB70A)
+I (..\mbed_nxp_lpc408x\targets\cmsis\core_cmInstr.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\core_cmFunc.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\core_cm4_simd.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\system_LPC407x_8x_177x_8x.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis_nvic.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\PortNames.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088\PeripheralNames.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088\PinNames.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\gpio_object.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\mbed_assert.h)(0x5653D910)
 I (C:\Keil_v5\ARM\ARMCC\include\cstddef)(0x55DB8DE8)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x55DB8DEE)
 I (C:\Keil_v5\ARM\ARMCC\include\cstdlib)(0x55DB8DF0)
@@ -33,110 +33,106 @@ I (C:\Keil_v5\ARM\ARMCC\include\cstring)(0x55DB8DEE)
 I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x55DB8DE8)
 I (C:\Keil_v5\ARM\ARMCC\include\math.h)(0x55DB8DEE)
 I (C:\Keil_v5\ARM\ARMCC\include\time.h)(0x55DB8DF0)
-I (..\mbed_nxp_lpc408x\api\mbed_error.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\mbed_interface.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\DigitalIn.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\hal\gpio_api.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\DigitalOut.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\DigitalInOut.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\BusIn.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\BusOut.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\BusInOut.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\PortIn.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\hal\port_api.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\PortInOut.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\PortOut.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\AnalogIn.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\hal\analogin_api.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\AnalogOut.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\hal\analogout_api.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\PwmOut.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\hal\pwmout_api.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\Serial.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\Stream.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\FileLike.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\FileBase.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\FileHandle.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\SerialBase.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\FunctionPointer.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\hal\serial_api.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\hal\buffer.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\hal\dma_api.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\SPI.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\hal\spi_api.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\SPISlave.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\I2C.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\hal\i2c_api.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\I2CSlave.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\Ethernet.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\CAN.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\hal\can_api.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\can_helper.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\RawSerial.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\Timer.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\hal\ticker_api.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\Ticker.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\TimerEvent.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\hal\us_ticker_api.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\Timeout.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\LowPowerTimeout.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\LowPowerTicker.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\LowPowerTimer.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\LocalFileSystem.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\api\InterruptIn.h)(0x564DB709)
-I (..\mbed_nxp_lpc408x\hal\gpio_irq_api.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\wait_api.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\hal\sleep_api.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\api\rtc_time.h)(0x564DB70A)
-I (..\ebb\EALib\MMA7455.h)(0x564DB709)
-I (..\ebb\display.h)(0x564DB709)
-I (..\ebb\Graphics.h)(0x564DB709)
-I (..\ebb\EALib\LcdController.h)(0x564DB709)
-I (..\ebb\EaLcdBoardGPIO.h)(0x564DB709)
-I (..\ebb\EALib\EaLcdBoard.h)(0x564DB709)
-I (..\ebb\AR1021I2C.h)(0x564DB709)
-I (..\ebb\EALib\TouchPanel.h)(0x564DB709)
-I (..\ebb\EALib\sdram.h)(0x564DB709)
+I (..\mbed_nxp_lpc408x\api\mbed_error.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\mbed_interface.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\DigitalIn.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\hal\gpio_api.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\DigitalOut.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\DigitalInOut.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\BusIn.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\BusOut.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\BusInOut.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\PortIn.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\hal\port_api.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\PortInOut.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\PortOut.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\AnalogIn.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\hal\analogin_api.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\AnalogOut.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\hal\analogout_api.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\PwmOut.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\hal\pwmout_api.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\Serial.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\Stream.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\FileLike.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\FileBase.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\FileHandle.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\SerialBase.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\FunctionPointer.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\hal\serial_api.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\hal\buffer.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\hal\dma_api.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\SPI.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\hal\spi_api.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\SPISlave.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\I2C.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\hal\i2c_api.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\I2CSlave.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\Ethernet.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\CAN.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\hal\can_api.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\can_helper.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\RawSerial.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\Timer.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\hal\ticker_api.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\Ticker.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\TimerEvent.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\hal\us_ticker_api.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\Timeout.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\LowPowerTimeout.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\LowPowerTicker.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\LowPowerTimer.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\LocalFileSystem.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\InterruptIn.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\hal\gpio_irq_api.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\wait_api.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\hal\sleep_api.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\api\rtc_time.h)(0x5653D910)
+I (..\ebb\EALib\MMA7455.h)(0x5653D910)
+I (..\ebb\display.h)(0x5653D910)
+I (..\ebb\Graphics.h)(0x5653D910)
+I (..\ebb\EALib\LcdController.h)(0x5653D910)
+I (..\ebb\EaLcdBoardGPIO.h)(0x5653D910)
+I (..\ebb\EALib\EaLcdBoard.h)(0x5653D910)
+I (..\ebb\AR1021I2C.h)(0x5653D910)
+I (..\ebb\EALib\TouchPanel.h)(0x5653D910)
+I (..\ebb\EALib\sdram.h)(0x5653D910)
 I (C:\Keil_v5\ARM\ARMCC\include\wchar.h)(0x55DB8DEE)
-I (..\ebb\EALib\GFXFb.h)(0x564DB709)
-I (..\ebb\EALib\Adafruit_GFX.h)(0x564DB709)
-I (src\buffer.h)(0x564DC37D)
-I (src\timer.h)(0x5651C6E6)
-I (src\gpioPin.h)(0x5651C69B)
-F (.\src\buffer.cpp)(0x564DB738)(--cpp -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\uCOS-II\Source -I..\uCOS-II\Ports\ARM-Cortex-M4\Generic\ARM -I..\mbed_nxp_lpc408x\api -I..\mbed_nxp_lpc408x\common -I..\mbed_nxp_lpc408x\hal -I..\mbed_nxp_lpc408x\targets\cmsis -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088 -I..\ebb -I..\ebb\EALib -I..\ebb\EALib\FATFileSystem -I..\ebb\EALib\FATFileSystem\ChaN -I..\ebb\I2S -I..\ebb\LM75B -I..\ebb\SDFileSystem-I "C:\Users\Cameron\Documents\GitHub\Briefcase 2 Electric Boogaloo\briefcase\RTE"-I C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="517" -DCORE_M4 -DTARGET_LPC4088 -DTARGET_M4 -DTARGET_CORTEX_M -DTARGET_NXP -DTARGET_LPC408X -DTOOLCHAIN_ARM_STD -DTOOLCHAIN_ARM -D__CORTEX_M4 -DARM_MATH_CM4 -D__FPU_PRESENT="1" -D__MBED__="1" -D__ASSERT_MSG-o .\objects\buffer.o --omf_browse .\objects\buffer.crf --depend .\objects\buffer.d)
+I (..\ebb\EALib\GFXFb.h)(0x5653D910)
+I (..\ebb\EALib\Adafruit_GFX.h)(0x5653D910)
+I (src\buffer.h)(0x5656D8F4)
+F (.\src\buffer.cpp)(0x56600FCB)(--cpp -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\uCOS-II\Source -I..\uCOS-II\Ports\ARM-Cortex-M4\Generic\ARM -I..\mbed_nxp_lpc408x\api -I..\mbed_nxp_lpc408x\common -I..\mbed_nxp_lpc408x\hal -I..\mbed_nxp_lpc408x\targets\cmsis -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088 -I..\ebb -I..\ebb\EALib -I..\ebb\EALib\FATFileSystem -I..\ebb\EALib\FATFileSystem\ChaN -I..\ebb\I2S -I..\ebb\LM75B -I..\ebb\SDFileSystem-I C:\Users\Cameron\Documents\GitHub\Briefcase-2-Electric-Boogaloo\briefcase\RTE-I C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="517" -DCORE_M4 -DTARGET_LPC4088 -DTARGET_M4 -DTARGET_CORTEX_M -DTARGET_NXP -DTARGET_LPC408X -DTOOLCHAIN_ARM_STD -DTOOLCHAIN_ARM -D__CORTEX_M4 -DARM_MATH_CM4 -D__FPU_PRESENT="1" -D__MBED__="1" -D__ASSERT_MSG-o .\objects\buffer.o --omf_browse .\objects\buffer.crf --depend .\objects\buffer.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DB8DF0)
-I (..\uCOS-II\Source\ucos_ii.h)(0x564DB70B)
-I (..\uCOS-II\Source\app_cfg.h)(0x564DB70B)
-I (..\uCOS-II\Source\os_cfg.h)(0x564DB70B)
-I (..\uCOS-II\Ports\ARM-Cortex-M4\Generic\ARM\os_cpu.h)(0x564DB70B)
-I (src\buffer.h)(0x564DC37D)
-F (.\src\buffer.h)(0x564DC37D)()
-F (.\src\timer.h)(0x5651C6E6)()
-F (.\src\gpioPin.h)(0x5651C69B)()
-F (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis_nvic.c)(0x564DB70B)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\uCOS-II\Source -I..\uCOS-II\Ports\ARM-Cortex-M4\Generic\ARM -I..\mbed_nxp_lpc408x\api -I..\mbed_nxp_lpc408x\common -I..\mbed_nxp_lpc408x\hal -I..\mbed_nxp_lpc408x\targets\cmsis -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088 -I..\ebb -I..\ebb\EALib -I..\ebb\EALib\FATFileSystem -I..\ebb\EALib\FATFileSystem\ChaN -I..\ebb\I2S -I..\ebb\LM75B -I..\ebb\SDFileSystem-I "C:\Users\Cameron\Documents\GitHub\Briefcase 2 Electric Boogaloo\briefcase\RTE"-I C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="517" -DCORE_M4 -DTARGET_LPC4088 -DTARGET_M4 -DTARGET_CORTEX_M -DTARGET_NXP -DTARGET_LPC408X -DTOOLCHAIN_ARM_STD -DTOOLCHAIN_ARM -D__CORTEX_M4 -DARM_MATH_CM4 -D__FPU_PRESENT="1" -D__MBED__="1" -D__ASSERT_MSG-o .\objects\cmsis_nvic.o --omf_browse .\objects\cmsis_nvic.crf --depend .\objects\cmsis_nvic.d)
-I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis_nvic.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\LPC407x_8x_177x_8x.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\targets\cmsis\core_cm4.h)(0x564DB70B)
+I (..\uCOS-II\Source\ucos_ii.h)(0x5653D910)
+I (..\uCOS-II\Source\app_cfg.h)(0x5653D910)
+I (..\uCOS-II\Source\os_cfg.h)(0x5653D910)
+I (..\uCOS-II\Ports\ARM-Cortex-M4\Generic\ARM\os_cpu.h)(0x5653D910)
+I (src\buffer.h)(0x5656D8F4)
+F (.\src\buffer.h)(0x5656D8F4)()
+F (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis_nvic.c)(0x5653D910)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\uCOS-II\Source -I..\uCOS-II\Ports\ARM-Cortex-M4\Generic\ARM -I..\mbed_nxp_lpc408x\api -I..\mbed_nxp_lpc408x\common -I..\mbed_nxp_lpc408x\hal -I..\mbed_nxp_lpc408x\targets\cmsis -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088 -I..\ebb -I..\ebb\EALib -I..\ebb\EALib\FATFileSystem -I..\ebb\EALib\FATFileSystem\ChaN -I..\ebb\I2S -I..\ebb\LM75B -I..\ebb\SDFileSystem-I C:\Users\Cameron\Documents\GitHub\Briefcase-2-Electric-Boogaloo\briefcase\RTE-I C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="517" -DCORE_M4 -DTARGET_LPC4088 -DTARGET_M4 -DTARGET_CORTEX_M -DTARGET_NXP -DTARGET_LPC408X -DTOOLCHAIN_ARM_STD -DTOOLCHAIN_ARM -D__CORTEX_M4 -DARM_MATH_CM4 -D__FPU_PRESENT="1" -D__MBED__="1" -D__ASSERT_MSG-o .\objects\cmsis_nvic.o --omf_browse .\objects\cmsis_nvic.crf --depend .\objects\cmsis_nvic.d)
+I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis_nvic.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\cmsis.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\LPC407x_8x_177x_8x.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\core_cm4.h)(0x5653D910)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DB8DF0)
-I (..\mbed_nxp_lpc408x\targets\cmsis\core_cmInstr.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\cmsis\core_cmFunc.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\cmsis\core_cm4_simd.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\system_LPC407x_8x_177x_8x.h)(0x564DB70B)
-F (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\system_LPC407x_8x_177x_8x.c)(0x564DB70B)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\uCOS-II\Source -I..\uCOS-II\Ports\ARM-Cortex-M4\Generic\ARM -I..\mbed_nxp_lpc408x\api -I..\mbed_nxp_lpc408x\common -I..\mbed_nxp_lpc408x\hal -I..\mbed_nxp_lpc408x\targets\cmsis -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088 -I..\ebb -I..\ebb\EALib -I..\ebb\EALib\FATFileSystem -I..\ebb\EALib\FATFileSystem\ChaN -I..\ebb\I2S -I..\ebb\LM75B -I..\ebb\SDFileSystem-I "C:\Users\Cameron\Documents\GitHub\Briefcase 2 Electric Boogaloo\briefcase\RTE"-I C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="517" -DCORE_M4 -DTARGET_LPC4088 -DTARGET_M4 -DTARGET_CORTEX_M -DTARGET_NXP -DTARGET_LPC408X -DTOOLCHAIN_ARM_STD -DTOOLCHAIN_ARM -D__CORTEX_M4 -DARM_MATH_CM4 -D__FPU_PRESENT="1" -D__MBED__="1" -D__ASSERT_MSG-o .\objects\system_lpc407x_8x_177x_8x.o --omf_browse .\objects\system_lpc407x_8x_177x_8x.crf --depend .\objects\system_lpc407x_8x_177x_8x.d)
+I (..\mbed_nxp_lpc408x\targets\cmsis\core_cmInstr.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\core_cmFunc.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\core_cm4_simd.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\system_LPC407x_8x_177x_8x.h)(0x5653D910)
+F (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\system_LPC407x_8x_177x_8x.c)(0x5653D910)(--c99 -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\uCOS-II\Source -I..\uCOS-II\Ports\ARM-Cortex-M4\Generic\ARM -I..\mbed_nxp_lpc408x\api -I..\mbed_nxp_lpc408x\common -I..\mbed_nxp_lpc408x\hal -I..\mbed_nxp_lpc408x\targets\cmsis -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088 -I..\ebb -I..\ebb\EALib -I..\ebb\EALib\FATFileSystem -I..\ebb\EALib\FATFileSystem\ChaN -I..\ebb\I2S -I..\ebb\LM75B -I..\ebb\SDFileSystem-I C:\Users\Cameron\Documents\GitHub\Briefcase-2-Electric-Boogaloo\briefcase\RTE-I C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="517" -DCORE_M4 -DTARGET_LPC4088 -DTARGET_M4 -DTARGET_CORTEX_M -DTARGET_NXP -DTARGET_LPC408X -DTOOLCHAIN_ARM_STD -DTOOLCHAIN_ARM -D__CORTEX_M4 -DARM_MATH_CM4 -D__FPU_PRESENT="1" -D__MBED__="1" -D__ASSERT_MSG-o .\objects\system_lpc407x_8x_177x_8x.o --omf_browse .\objects\system_lpc407x_8x_177x_8x.crf --depend .\objects\system_lpc407x_8x_177x_8x.d)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DB8DF0)
-I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\LPC407x_8x_177x_8x.h)(0x564DB70A)
-I (..\mbed_nxp_lpc408x\targets\cmsis\core_cm4.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\cmsis\core_cmInstr.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\cmsis\core_cmFunc.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\cmsis\core_cm4_simd.h)(0x564DB70B)
-I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\system_LPC407x_8x_177x_8x.h)(0x564DB70B)
-F (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD\startup_LPC407x_8x_177x_8x.S)(0x564DB70A)(--cpu Cortex-M4.fp -g --apcs=interwork -I "C:\Users\Cameron\Documents\GitHub\Briefcase 2 Electric Boogaloo\briefcase\RTE"-I C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 517" --pd "CORE_M4 SETA 1" --pd "CORE_M4 SETA 1"--list .\listings\startup_lpc407x_8x_177x_8x.lst --xref -o .\objects\startup_lpc407x_8x_177x_8x.o --depend .\objects\startup_lpc407x_8x_177x_8x.d)
-F (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD\sys.cpp)(0x564DB70A)(--cpp -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\uCOS-II\Source -I..\uCOS-II\Ports\ARM-Cortex-M4\Generic\ARM -I..\mbed_nxp_lpc408x\api -I..\mbed_nxp_lpc408x\common -I..\mbed_nxp_lpc408x\hal -I..\mbed_nxp_lpc408x\targets\cmsis -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088 -I..\ebb -I..\ebb\EALib -I..\ebb\EALib\FATFileSystem -I..\ebb\EALib\FATFileSystem\ChaN -I..\ebb\I2S -I..\ebb\LM75B -I..\ebb\SDFileSystem-I "C:\Users\Cameron\Documents\GitHub\Briefcase 2 Electric Boogaloo\briefcase\RTE"-I C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="517" -DCORE_M4 -DTARGET_LPC4088 -DTARGET_M4 -DTARGET_CORTEX_M -DTARGET_NXP -DTARGET_LPC408X -DTOOLCHAIN_ARM_STD -DTOOLCHAIN_ARM -D__CORTEX_M4 -DARM_MATH_CM4 -D__FPU_PRESENT="1" -D__MBED__="1" -D__ASSERT_MSG-o .\objects\sys.o --omf_browse .\objects\sys.crf --depend .\objects\sys.d)
+I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\LPC407x_8x_177x_8x.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\core_cm4.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\core_cmInstr.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\core_cmFunc.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\core_cm4_simd.h)(0x5653D910)
+I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\system_LPC407x_8x_177x_8x.h)(0x5653D910)
+F (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD\startup_LPC407x_8x_177x_8x.S)(0x5653D910)(--cpu Cortex-M4.fp -g --apcs=interwork -I C:\Users\Cameron\Documents\GitHub\Briefcase-2-Electric-Boogaloo\briefcase\RTE-I C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include--pd "__UVISION_VERSION SETA 517" --pd "CORE_M4 SETA 1" --pd "CORE_M4 SETA 1"--list .\listings\startup_lpc407x_8x_177x_8x.lst --xref -o .\objects\startup_lpc407x_8x_177x_8x.o --depend .\objects\startup_lpc407x_8x_177x_8x.d)
+F (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD\sys.cpp)(0x5653D910)(--cpp -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\uCOS-II\Source -I..\uCOS-II\Ports\ARM-Cortex-M4\Generic\ARM -I..\mbed_nxp_lpc408x\api -I..\mbed_nxp_lpc408x\common -I..\mbed_nxp_lpc408x\hal -I..\mbed_nxp_lpc408x\targets\cmsis -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088 -I..\ebb -I..\ebb\EALib -I..\ebb\EALib\FATFileSystem -I..\ebb\EALib\FATFileSystem\ChaN -I..\ebb\I2S -I..\ebb\LM75B -I..\ebb\SDFileSystem-I C:\Users\Cameron\Documents\GitHub\Briefcase-2-Electric-Boogaloo\briefcase\RTE-I C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="517" -DCORE_M4 -DTARGET_LPC4088 -DTARGET_M4 -DTARGET_CORTEX_M -DTARGET_NXP -DTARGET_LPC408X -DTOOLCHAIN_ARM_STD -DTOOLCHAIN_ARM -D__CORTEX_M4 -DARM_MATH_CM4 -D__FPU_PRESENT="1" -D__MBED__="1" -D__ASSERT_MSG-o .\objects\sys.o --omf_browse .\objects\sys.crf --depend .\objects\sys.d)
 I (C:\Keil_v5\ARM\ARMCC\include\rt_misc.h)(0x55DB8DE8)
 I (C:\Keil_v5\ARM\ARMCC\include\stddef.h)(0x55DB8DEE)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DB8DF0)
-I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD\sys_helper.h)(0x564DB70A)
-F (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD\sys_helper.cpp)(0x564DB70A)(--cpp -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\uCOS-II\Source -I..\uCOS-II\Ports\ARM-Cortex-M4\Generic\ARM -I..\mbed_nxp_lpc408x\api -I..\mbed_nxp_lpc408x\common -I..\mbed_nxp_lpc408x\hal -I..\mbed_nxp_lpc408x\targets\cmsis -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088 -I..\ebb -I..\ebb\EALib -I..\ebb\EALib\FATFileSystem -I..\ebb\EALib\FATFileSystem\ChaN -I..\ebb\I2S -I..\ebb\LM75B -I..\ebb\SDFileSystem-I "C:\Users\Cameron\Documents\GitHub\Briefcase 2 Electric Boogaloo\briefcase\RTE"-I C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="517" -DCORE_M4 -DTARGET_LPC4088 -DTARGET_M4 -DTARGET_CORTEX_M -DTARGET_NXP -DTARGET_LPC408X -DTOOLCHAIN_ARM_STD -DTOOLCHAIN_ARM -D__CORTEX_M4 -DARM_MATH_CM4 -D__FPU_PRESENT="1" -D__MBED__="1" -D__ASSERT_MSG-o .\objects\sys_helper.o --omf_browse .\objects\sys_helper.crf --depend .\objects\sys_helper.d)
-I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD\sys_helper.h)(0x564DB70A)
+I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD\sys_helper.h)(0x5653D910)
+F (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD\sys_helper.cpp)(0x5653D910)(--cpp -c --cpu Cortex-M4.fp -g -O0 --apcs=interwork --split_sections -I..\uCOS-II\Source -I..\uCOS-II\Ports\ARM-Cortex-M4\Generic\ARM -I..\mbed_nxp_lpc408x\api -I..\mbed_nxp_lpc408x\common -I..\mbed_nxp_lpc408x\hal -I..\mbed_nxp_lpc408x\targets\cmsis -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X -I..\mbed_nxp_lpc408x\targets\hal\TARGET_NXP\TARGET_LPC408X\TARGET_LPC4088 -I..\ebb -I..\ebb\EALib -I..\ebb\EALib\FATFileSystem -I..\ebb\EALib\FATFileSystem\ChaN -I..\ebb\I2S -I..\ebb\LM75B -I..\ebb\SDFileSystem-I C:\Users\Cameron\Documents\GitHub\Briefcase-2-Electric-Boogaloo\briefcase\RTE-I C:\Keil_v5\ARM\PACK\Keil\LPC4000_DFP\1.1.0\Device\Include-I C:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="517" -DCORE_M4 -DTARGET_LPC4088 -DTARGET_M4 -DTARGET_CORTEX_M -DTARGET_NXP -DTARGET_LPC408X -DTOOLCHAIN_ARM_STD -DTOOLCHAIN_ARM -D__CORTEX_M4 -DARM_MATH_CM4 -D__FPU_PRESENT="1" -D__MBED__="1" -D__ASSERT_MSG-o .\objects\sys_helper.o --omf_browse .\objects\sys_helper.crf --depend .\objects\sys_helper.d)
+I (..\mbed_nxp_lpc408x\targets\cmsis\TARGET_NXP\TARGET_LPC408X\TOOLCHAIN_ARM_STD\sys_helper.h)(0x5653D910)
 I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x55DB8DF0)

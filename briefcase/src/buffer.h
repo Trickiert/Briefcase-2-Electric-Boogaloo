@@ -9,7 +9,7 @@ enum {
 
 typedef struct message {
   uint32_t id;
-  uint32_t data[2];
+  uint32_t data[3];
 	float fdata[3];
 } message_t;
 

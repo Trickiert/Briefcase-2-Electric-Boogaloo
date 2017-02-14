@@ -437,7 +437,7 @@ extern "C" int __real_main(void);
 
 extern "C" int __wrap_main(void) {
     mbed_sdk_init();
-    mbed_main();
+    mbed_main();z
     return __real_main();
 }
 #elif defined(TOOLCHAIN_IAR)
